@@ -1,0 +1,10 @@
+.Nav-list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.Nav-item {
+
+}

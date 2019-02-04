@@ -1,0 +1,21 @@
+.App-header {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 25em) 2fr minmax(auto, 25em)  1fr;
+  border: 3px solid black;
+}
+
+.Header-logo {
+  grid-column: 2 / 3;
+  text-align: start;
+}
+
+.Header-logo .h1 {
+  margin: 0;
+}
+
+.Header-nav {
+  grid-column: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
