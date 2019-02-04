@@ -11,7 +11,7 @@ class Nav extends Component {
           <li className='Nav-item'><Link to='/'>Articles</Link></li>
           <li className='Nav-item'><Link to='/topics'>Topics</Link></li>
           <li className='Nav-item'><Link to='/users'>Users</Link></li>
-          <li className='Nav-item'>Profile</li>
+          <li className='Nav-item'><Link to='/profile'>Profile</Link></li>
         </ul>
       </div>
     );

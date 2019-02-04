@@ -4,6 +4,8 @@ import { Router } from '@reach/router';
 import Home from './components/Home';
 import Header from './components/Header'
 import Topics from './components/Topics';
+import Users from './components/Users';
+import Profile from './components/Profile';
 
 
 class App extends Component {
@@ -17,6 +19,8 @@ class App extends Component {
         <Router className="App-page">
           <Home path='/'/>
           <Topics path='/topics'/>
+          <Users path='/users' />
+          <Profile path='/profile'/>
         </Router>
       </div>
     );
