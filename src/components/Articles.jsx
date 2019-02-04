@@ -8,7 +8,7 @@ class Articles extends Component {
   }
   render() { 
     return ( 
-      <div>
+      <div className='Articles'>
         <SortAndFilter />
         <div>Articles</div>
       </div>

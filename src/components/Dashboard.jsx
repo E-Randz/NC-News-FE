@@ -6,10 +6,14 @@ import Button from './Button';
 const Dashboard = () => {
   const buttonPurposes = ['New Topic', 'New Article']
   return ( 
-    <div>
+    <div className='Dashboard'>
       <UserOverview />
       {buttonPurposes.map(buttonPurpose => {
-        return <Button buttonPurpose={buttonPurpose} />
+        return (
+          <div>
+            <Button buttonPurpose={buttonPurpose} />
+          </div>
+        )
       })}
     </div>
    );
