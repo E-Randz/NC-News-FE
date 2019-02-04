@@ -6,6 +6,9 @@ import Header from './components/Header'
 
 
 class App extends Component {
+  state = {
+    currentUser: null,
+  }
   render() {
     return (
       <div className="App">
