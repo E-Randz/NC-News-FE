@@ -6,11 +6,14 @@
 
 .Header-logo {
   grid-column: 2 / 3;
-  text-align: start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.Header-logo .h1 {
+.Header-logo > h1 {
   margin: 0;
+  padding-left: 2em;
 }
 
 .Header-nav {
