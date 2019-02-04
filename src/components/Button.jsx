@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = (props) => {
-  const { buttonPurpose } = this.props;
+  const { buttonPurpose } = props;
   return ( 
     <button>{ buttonPurpose }</button>
    );
