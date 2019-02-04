@@ -8,7 +8,7 @@ class Home extends Component {
     return ( 
       <>
         <Dashboard />
-        <Articles />
+        <Articles />       
       </>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SortAndFilter from './SortAndFilter';
+
 
 class Topics extends Component {
   state = { 

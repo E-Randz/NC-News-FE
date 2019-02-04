@@ -16,7 +16,7 @@ class App extends Component {
         <Header />
         <Router className="App-page">
           <Home path='/'/>
-          <Topics />
+          <Topics path='/topics'/>
         </Router>
       </div>
     );
