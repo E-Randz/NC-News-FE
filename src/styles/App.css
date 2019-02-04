@@ -5,14 +5,14 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
-  grid-template: 8em 1fr/ 1fr;
+  grid-template: 5em 1fr/ 1fr;
 }
 
 .App-page {
   margin-top: 2em;
   grid-row: 2 / 3;
   display: grid;
-  grid-template-columns: 10em 1fr;
+  grid-template-columns: 15em 1fr;
 }
 
 .Dashboard {

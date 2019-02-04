@@ -3,6 +3,7 @@ import './styles/App.css';
 import { Router } from '@reach/router';
 import Home from './components/Home';
 import Header from './components/Header'
+import Topics from './components/Topics';
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <Header />
         <Router className="App-page">
           <Home path='/'/>
+          <Topics />
         </Router>
       </div>
     );
