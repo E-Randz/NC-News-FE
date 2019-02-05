@@ -6,6 +6,8 @@ import Header from './components/Header'
 import Topics from './components/Topics';
 import Users from './components/Users';
 import Profile from './components/Profile';
+import Articles from './components/Articles';
+import Article from './components/Article';
 
 
 class App extends Component {
@@ -18,6 +20,8 @@ class App extends Component {
         <Header />
         <Router className="App-page">
           <Home path='/'/>
+          <Articles path='/articles' />
+          <Article path='/articles/:article_id' />
           <Topics path='/topics'/>
           <Users path='/users' />
           <Profile path='/profile'/>

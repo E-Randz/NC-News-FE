@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
 import { fetchArticles } from '../utils';
-import { Link, Router } from '@reach/router';
-import Article from '../components/Article';
+import { Link } from '@reach/router';
 
 class Articles extends Component {
   state = { 
@@ -28,7 +27,7 @@ class Articles extends Component {
             const created_at = new Date(timestamp).toString().replace(/ GMT.*/, '');
             return (
               <div key={article_id} className="Article-item">
-                <h2 className="Article-title"><Link to={`/${article_id}`}>{title}</Link></h2>
+                <h2 className="Article-title"><Link to={`/articles/${article_id}`}>{title}</Link></h2>
                 <p className="Article-author">{author}</p>
                 <p className="Article-topic">{topic}</p>
                 <p className="Article-createdAt">{created_at}</p>
@@ -39,9 +38,6 @@ class Articles extends Component {
           })}
         </div>
       </div>
-      <Router>
-        <Article path=':article_id' />
-      </Router>
     );
   }
 
