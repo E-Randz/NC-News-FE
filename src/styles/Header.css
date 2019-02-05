@@ -1,6 +1,6 @@
 .App-header {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 25em) 2fr minmax(auto, 25em)  1fr;
+  grid-template-columns: 2em minmax(auto, 25em) 2fr minmax(auto, 25em)  1fr;
   border: 3px solid black;
 }
 
@@ -13,7 +13,6 @@
 
 .Header-logo > h1 {
   margin: 0;
-  padding-left: 2em;
 }
 
 .Header-nav {
