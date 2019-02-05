@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-import UserOverview from './UserOverview';
-import Button from './Button';
-// import NewTopic from './NewTopic';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPenSquare, faWindowClose} from '@fortawesome/free-solid-svg-icons';
 
 class Dashboard extends Component {
   state = { 
-    showing: false
+    dashboardOpen: false,
+    icon: faPenSquare,
+  }
+  componentDidUpdate(_, prevState) {
+    const { toggleDashboard } = this.props;
+    const { dashboardOpen } = this.state;
+    if(prevState.dashboardOpen !== dashboardOpen) {
+      toggleDashboard(dashboardOpen);
+    }
   }
   render() { 
-    const buttonPurposes = ['New Topic', 'New Article']
+    const { user } = this.props
+    const { icon } = this.state;
     return ( 
-       <div className='Dashboard'>
-      <UserOverview />
-      {buttonPurposes.map(buttonPurpose => {
-        return (
-          <div>
-            <Button buttonPurpose={buttonPurpose} />
-          </div>
-        )
-      })}
-      <Button buttonPurpose='>' />
-    </div>
-    );
+      user && 
+      <div className='Dashboard-button'>
+        <button aria-label="Open Dashboard" ><FontAwesomeIcon onClick={this.toggleModal} icon={icon} /></button>
+      </div>
+     );
+  }
+  toggleModal = () => {
+    const { dashboardOpen } = this.state;
+    if (!dashboardOpen) {
+      this.setState({
+        dashboardOpen: true,
+        icon: faWindowClose,
+      })
+    } else {
+      this.setState({
+        dashboardOpen: false,
+        icon: faPenSquare,
+      })
+    }
   }
 }
  

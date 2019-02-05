@@ -6,15 +6,23 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
-  grid-template: 5em 1fr/ 1fr;
-  grid-gap: 2em;
+  grid-template: 5em 2em 1fr/ 1fr;
+  /* grid-gap: 2em; */
+}
+.Dashboard-button {
+  display: flex;
+  justify-content: flex-start;
+}
+.Dashboard-button > button{
+  font-size: 2em;
+  padding: 0;
 }
 
-.App-page {
-  grid-row: 2 / 3;
-  /* display: grid;
-  grid-template-columns: 15em 1fr; */
-}
+/* .App-page {
+  grid-row: 3 / 4;
+  display: grid;
+  grid-template-columns: 15em 1fr;
+} */
 
 /* .Dashboard {
   grid-column: 1 / 2;

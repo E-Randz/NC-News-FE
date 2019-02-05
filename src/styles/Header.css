@@ -7,7 +7,7 @@
 .Header-logo {
   grid-column: 2 / 3;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -21,3 +21,4 @@
   align-items: center;
   justify-content: stretch;
 }
+

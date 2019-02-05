@@ -1,40 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/Header.css'
 import Logo from './Logo';
 import Nav from './Nav';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPenSquare, faWindowClose} from '@fortawesome/free-solid-svg-icons'
+import Dashboard from './Dashboard';
 
-class Header extends Component {
-  state = { 
-    dashboardOpen: false,
-    icon: faPenSquare,
-  }
-  render() { 
-    const { user } = this.props
-    const { icon } = this.state;
+const Header = (props) => {
+    const { user, toggleDashboard } = props;
     return ( 
       <div className='App-header'>
-        <FontAwesomeIcon onClick={this.toggleModal} icon={icon} />
+        <Dashboard toggleDashboard={toggleDashboard} user={user}/>
         <Logo />
         <Nav user={user}/>
       </div>
      );
   }
-  toggleModal = () => {
-    const { dashboardOpen } = this.state;
-    if (!dashboardOpen) {
-      this.setState({
-        dashboardOpen: true,
-        icon: faWindowClose,
-      })
-    } else {
-      this.setState({
-        dashboardOpen: false,
-        icon: faPenSquare,
-      })
-    }
-  }
-}
+
  
 export default Header;
