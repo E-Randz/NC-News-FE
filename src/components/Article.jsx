@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { fetchOneArticle } from '../utils'
 import Button from './Button';
+import Comments from './Comments';
 
 class Article extends Component {
   state = { 
    article: null,
    commentsButton: true,
-   comments: null,
   }
   async componentDidMount() {
     const { article_id } = this.props;
@@ -38,7 +38,7 @@ class Article extends Component {
           </div>
           <div className='Article-comments'>
             {commentsButton && <Button handleClick={this.handleClick} buttonPurpose='Show Comments' />}
-            {comments && <p>Comments</p>}
+            {comments && <Comments />}
           </div>
         </div>
     );
