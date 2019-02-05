@@ -15,7 +15,10 @@ import Auth from './components/Auth';
 
 class App extends Component {
   state = {
-    user: null,
+    user: {
+      username: "tickle122",
+      name: "Tom Tickle",
+      avatar_url: "https://image.flaticon.com/icons/svg/145/145842.svg"},
   }
   render() {
     const { user } = this.state;

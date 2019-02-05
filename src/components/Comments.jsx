@@ -12,7 +12,6 @@ class Comments extends Component {
     const { article_id } = this.props;
     fetchComments(article_id)
     .then((comments) => {
-      console.log(comments);
       this.setState({
         comments,
         loadingComments: false,

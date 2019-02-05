@@ -9,7 +9,7 @@ class Auth extends Component {
   }
   render() { 
     const { user, children } = this.props;
-    const { username } = this.state;
+    const { username, userErr } = this.state;
     return (
       user ? children : 
       <div className='Login-page'>
@@ -17,6 +17,7 @@ class Auth extends Component {
         <form onSubmit={this.handleSubmit}>
           <input value={username} name='username' placeholder='username here' onChange={this.handleChange} type="text"/>
         </form>
+        {userErr && <p>Invalid Username</p>}
       </div>
     );
   }
@@ -36,11 +37,11 @@ class Auth extends Component {
     })
     getUserByUsername(username)
       .then(({ user }) => {
-        console.log(user);
         setUser(user)
       })
       .catch(err => {
         this.setState({
+          username: '',
           userErr: err,
           userLoading: false,
         })
