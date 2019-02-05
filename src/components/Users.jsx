@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchUsers } from '../utils';
-import User from './User';
+import UserItem from './UserItem';
 
 
 class Users extends Component {
@@ -24,7 +24,7 @@ class Users extends Component {
       {loadingUsers && <p>Loading Users...</p>}
       {users.map(user => {
         return (
-          <User user={user} />
+          <UserItem user={user} />
         )
       })}
       </div>
