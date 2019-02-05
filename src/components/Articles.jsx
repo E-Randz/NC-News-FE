@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
+import { fetchArticles } from '../utils';
 
 class Articles extends Component {
   state = { 
     articles: [],
     sortAndFilterCriteria: null,
+  }
+
+  componentDidMount() {
+    const articles = this.fetchArticles();
   }
   render() { 
     return ( 
@@ -14,6 +19,7 @@ class Articles extends Component {
       </div>
     );
   }
+
 }
  
 export default Articles;

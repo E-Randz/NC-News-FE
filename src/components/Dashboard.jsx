@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import UserOverview from './UserOverview';
 import Button from './Button';
 // import NewTopic from './NewTopic';
 
-const Dashboard = () => {
-  const buttonPurposes = ['New Topic', 'New Article']
-  return ( 
-    <div className='Dashboard'>
+class Dashboard extends Component {
+  state = { 
+    showing: false
+  }
+  render() { 
+    const buttonPurposes = ['New Topic', 'New Article']
+    return ( 
+       <div className='Dashboard'>
       <UserOverview />
       {buttonPurposes.map(buttonPurpose => {
         return (
@@ -15,8 +19,10 @@ const Dashboard = () => {
           </div>
         )
       })}
+      <Button buttonPurpose='>' />
     </div>
-   );
+    );
+  }
 }
  
 export default Dashboard;
