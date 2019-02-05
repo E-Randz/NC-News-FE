@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchTopics } from '../utils';
+import { Link } from '@reach/router';
 
 
 class Topics extends Component {
@@ -22,7 +23,7 @@ class Topics extends Component {
           const { slug, description } = topic;
           return (
             <div key={slug} className="Topic-item">
-              <h2 className="Topic-slug">{slug}</h2>
+              <h2 className="Topic-slug"><Link to={`${slug}/articles`}>{slug}</Link></h2>
               <p className="Topic-description">{description}</p>
             </div>
           )

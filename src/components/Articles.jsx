@@ -10,7 +10,8 @@ class Articles extends Component {
   }
 
   async componentDidMount() {
-    const articles = await fetchArticles();
+    const { topic } = this.props;
+    const articles = await fetchArticles(topic);
     this.setState({
       articles
     })
@@ -40,8 +41,6 @@ class Articles extends Component {
       </div>
     );
   }
-
-
 }
  
 export default Articles;

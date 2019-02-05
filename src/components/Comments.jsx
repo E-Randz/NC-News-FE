@@ -6,6 +6,7 @@ class Comments extends Component {
   state = { 
     comments: null,
     loadingComments: true,
+    commentsErr: null,
   }
   componentDidMount() {
     const { article_id } = this.props;
@@ -17,10 +18,16 @@ class Comments extends Component {
         loadingComments: false,
       })
     })
-    .catch(err => console.log(err.message));
+    .catch(err => {
+      const {response: {data: { message: commentsErr }}} = err;
+      this.setState({
+        loadingComments: false,
+        commentsErr,
+      })
+    });
   }
   render() { 
-    const { comments, loadingComments } = this.state;
+    const { comments, loadingComments, commentsErr } = this.state;
     return ( 
       <div>
         {loadingComments && <h2>Loading Comments...</h2>}
@@ -29,10 +36,13 @@ class Comments extends Component {
          <h2 className='Comments-title'>Comments</h2> 
          {comments.map(comment => {
           return (
-            <Comment comment={comment}/>
+            <Comment key={comment.comment_id} comment={comment}/>
           )
          })}
         </>
+        }
+        {
+          commentsErr && <p>hello</p>
         }
       </div>
     );
