@@ -23,3 +23,13 @@ export const fetchComments = async (article_id) => {
     return err;
   }
 }
+export const fetchTopics = async (article_id) => {
+  const url = `${base_url}/topics`;
+  try {
+    const { data: { topics } } = await axios.get(url)
+    return topics;
+  } catch(err) {
+    console.log(err);
+    return err;
+  }
+}
