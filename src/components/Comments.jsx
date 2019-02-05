@@ -33,7 +33,6 @@ class Comments extends Component {
                 <p className="Comment-votes">Votes: {votes}</p>
                 <p className="Comment-createdAt">Created At: {created_at}</p>
               </div>
-
             </div> 
           )
         })}

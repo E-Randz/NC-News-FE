@@ -8,7 +8,7 @@ class Article extends Component {
   state = { 
    article: null,
    commentsButton: true,
-   comments: false,
+   commentButtonPurpose: 'Show Comments',
   }
   async componentDidMount() {
     const { article_id } = this.props;
@@ -18,12 +18,13 @@ class Article extends Component {
     })
   }
   render() { 
-    const { article, commentsButton, comments } = this.state;
+    const { article, commentsButton, comments, commentButtonPurpose } = this.state;
     if (article) {
       let timestamp = article.created_at.toString();
       const created_at = new Date(timestamp).toString().replace(/ GMT.*/, '');
       article.created_at = created_at;
     }
+
     return ( 
       article &&
         <div className="Article">
@@ -39,18 +40,26 @@ class Article extends Component {
             <p>{article.body}</p>
           </div>
           <div className='Article-comments'>
-            {commentsButton && <Button to='comments' handleClick={this.handleClick} buttonPurpose='Show Comments' />}
+            {commentsButton && <Button to='comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
             {comments && <Comments article_id={this.props.article_id} />
             }
           </div>
         </div>
     );
   }
-  handleClick = () => {
-    this.setState({
-      commentsButton: false,
-      comments: true,
-    })
+  handleClick = (e) => {
+    const {innerText} = e.target;
+    if (innerText === 'Show Comments') {
+      this.setState({
+        comments: true,
+        commentButtonPurpose: 'Hide Comments'
+      })
+    } else {
+      this.setState({
+        comments: false,
+        commentButtonPurpose: 'Show Comments'
+      })
+    }
   }
 }
  
