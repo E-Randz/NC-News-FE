@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { fetchOneArticle } from '../utils'
 import Button from './Button';
 import Comments from './Comments';
+import { Link, Router } from '@reach/router'
 
 class Article extends Component {
   state = { 
    article: null,
    commentsButton: true,
+   comments: false,
   }
   async componentDidMount() {
     const { article_id } = this.props;
@@ -37,8 +39,9 @@ class Article extends Component {
             <p>{article.body}</p>
           </div>
           <div className='Article-comments'>
-            {commentsButton && <Button handleClick={this.handleClick} buttonPurpose='Show Comments' />}
-            {comments && <Comments />}
+            {commentsButton && <Button to='comments' handleClick={this.handleClick} buttonPurpose='Show Comments' />}
+            {comments && <Comments article_id={this.props.article_id} />
+            }
           </div>
         </div>
     );
