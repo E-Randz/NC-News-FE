@@ -5,6 +5,7 @@
   justify-content: space-between;
   padding-right: 2em;
 }
-.Nav-item {
-
+.User-img {
+  width: 1em;
+  overflow: hidden;
 }

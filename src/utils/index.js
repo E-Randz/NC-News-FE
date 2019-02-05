@@ -24,7 +24,6 @@ export const fetchTopics = async (article_id) => {
     const { data: { topics } } = await axios.get(url)
     return topics;
   } catch(err) {
-    console.log(err);
     return err;
   }
 }
@@ -33,4 +32,10 @@ export const fetchUsers = async () => {
   const url = `${BASE_URL}/users`;
   const { data: { users } } = await axios.get(url)
   return users;
+}
+
+export const getUserByUsername = async (username) => {
+  const url = `${BASE_URL}/users/${username}`;
+  const { data } = await axios.get(url)
+  return data;
 }

@@ -9,29 +9,39 @@ import User from './components/User';
 import Profile from './components/Profile';
 import Articles from './components/Articles';
 import Article from './components/Article';
+import Auth from './components/Auth';
 
 
 
 class App extends Component {
   state = {
-    currentUser: null,
+    user: null,
   }
   render() {
+    const { user } = this.state;
     return (
       <div className="App">
-        <Header />
-        <Router className="App-page">
-          <Home path='/'/>
-          <Articles path='/articles' />
-          <Article path='/articles/:article_id' />
-          <Topics path='/topics'/>
-          <Articles path='/topics/:topic/articles' />
-          <Users path='/users' />
-          <User path='/users/:username' />
-          <Profile path='/profile'/>
-        </Router>
+        <Header user={user}/>
+        <Auth user={user} setUser={this.setUser} >
+          <Router className="App-page">
+            <Home path='/'/>
+            <Articles path='/articles' />
+            <Article path='/articles/:article_id' />
+            <Topics path='/topics'/>
+            <Articles path='/topics/:topic/articles' />
+            <Users path='/users' />
+            <User path='/users/:username' />
+            <Profile path='/profile'/>
+          </Router>
+        </Auth>
       </div>
     );
+  }
+  setUser = (user) => {
+    console.log(user, '<===setuser')
+    this.setState({
+      user,
+    })
   }
 }
 
