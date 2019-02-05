@@ -8,14 +8,19 @@ class Articles extends Component {
     sortAndFilterCriteria: null,
   }
 
-  componentDidMount() {
-    const articles = this.fetchArticles();
+  async componentDidMount() {
+    const articles = await fetchArticles();
+    this.setState({
+      articles
+    })
   }
   render() { 
     return ( 
       <div className='Articles'>
         <SortAndFilter />
-        <div>Articles</div>
+        <div className='Articles-results'>
+
+        </div>
       </div>
     );
   }

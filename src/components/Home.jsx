@@ -7,7 +7,7 @@ class Home extends Component {
   render() { 
     return ( 
       <>
-        <Dashboard />
+        {/* <Dashboard /> */}
         <Articles />       
       </>
     );

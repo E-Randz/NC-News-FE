@@ -11,11 +11,11 @@ body {
 .App-page {
   margin-top: 2em;
   grid-row: 2 / 3;
-  display: grid;
-  grid-template-columns: 15em 1fr;
+  /* display: grid;
+  grid-template-columns: 15em 1fr; */
 }
 
-.Dashboard {
+/* .Dashboard {
   grid-column: 1 / 2;
-}
+} */
 
