@@ -4,7 +4,8 @@ import Comment from './Comment';
 
 class Comments extends Component {
   state = { 
-    comments: [],
+    comments: null,
+    loadingComments: true,
   }
   componentDidMount() {
     const { article_id } = this.props;
@@ -13,20 +14,26 @@ class Comments extends Component {
       console.log(comments);
       this.setState({
         comments,
+        loadingComments: false,
       })
     })
     .catch(err => console.log(err.message));
   }
   render() { 
-    const { comments } = this.state;
+    const { comments, loadingComments } = this.state;
     return ( 
       <div>
-        <h2 className='Comments-title'>Comments</h2>
-        {comments.map(comment => {
+        {loadingComments && <h2>Loading Comments...</h2>}
+        {comments &&
+        <>
+         <h2 className='Comments-title'>Comments</h2> 
+         {comments.map(comment => {
           return (
             <Comment comment={comment}/>
           )
-        })}
+         })}
+        </>
+        }
       </div>
     );
   }
