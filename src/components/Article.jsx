@@ -2,24 +2,28 @@ import React, { Component } from 'react';
 import { fetchOneArticle } from '../api'
 import Button from './Button';
 import Comments from './Comments';
-import Votes from './Votes';
-// import { Link, Router } from '@reach/router'
+import Delete from './Delete';
+import ArticleInfo from './ArticleInfo';
 
 class Article extends Component {
   state = { 
    article: null,
+   comments: false,
    commentsButton: true,
    commentButtonPurpose: 'Show Comments',
+   deleteShowing: false,
+   deleteCheck: false,
   }
   async componentDidMount() {
-    const { article_id } = this.props;
+    const { article_id, user } = this.props;
     const article  = await fetchOneArticle(article_id);
     this.setState({
       article,
+      deleteShowing: user.username === article.author,
     })
   }
   render() { 
-    const { article, commentsButton, comments, commentButtonPurpose } = this.state;
+    const { article, commentsButton, comments, commentButtonPurpose, deleteShowing } = this.state;
     if (article) {
       let timestamp = article.created_at.toString();
       const created_at = new Date(timestamp).toString().replace(/ GMT.*/, '');
@@ -29,19 +33,13 @@ class Article extends Component {
     return ( 
       article &&
         <div className="Article">
-          <div className="Article-info"> 
-             <h1 className='Article-title'>{article.title}</h1>
-             <p className="Article-author">Author: {article.author}</p>
-             <p className="Article-topic">Topic: {article.topic}</p>
-             <p className='Article-createdAt'>{article.created_at}</p>
-             <Votes votes={article.votes} item={article} />
-             <p className="Article-commentCount">Comments: {article.comment_count}</p>
-          </div>
+          <ArticleInfo article={article} />
+          {deleteShowing && <Delete article={article} handleClick={this.handleDeleteCheck} text='Delete Article' />}
           <div className='Article-body'>
             <p>{article.body}</p>
           </div>
           <div className='Article-comments'>
-            {commentsButton && <Button to='comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
+            {commentsButton && <Button handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
             {comments && <Comments article_id={this.props.article_id} />
             }
           </div>
@@ -49,6 +47,7 @@ class Article extends Component {
     );
   }
   handleClick = (e) => {
+    console.log(e);
     const {innerText} = e.target;
     if (innerText === 'Show Comments') {
       this.setState({

@@ -31,7 +31,7 @@ class App extends Component {
           <Router className="App-page">
             <Home path='/'/>
             <Articles path='/articles' />
-            <Article path='/articles/:article_id' />
+            <Article user={user} path='/articles/:article_id' />
             <CreateArticle user={user} path='/create-article'/>
             <Topics path='/topics'/>
             <CreateTopic path='/create-topic'/>

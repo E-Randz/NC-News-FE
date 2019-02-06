@@ -67,5 +67,10 @@ export const changeVoteCount = (voteChange, item, commentArticleId) => {
   return axios.patch(url, patchBody)
 }
 
+export const deleteItem = (article_id, comment_id) => {
+  const url = comment_id ? 'nope' : `${BASE_URL}/articles/${article_id}`;
+  return axios.delete(url);
+}
+
 
 

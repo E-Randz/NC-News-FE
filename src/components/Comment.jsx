@@ -1,6 +1,5 @@
 import React from 'react';
 import Votes from './Votes';
-import Article from './Article';
 
 const Comment = (props) => {
   const { comment_article_id } = props;
