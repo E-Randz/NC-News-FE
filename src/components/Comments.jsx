@@ -18,16 +18,12 @@ class Comments extends Component {
       })
     })
     .catch(err => {
-      const {response: {data: { message: commentsErr }}} = err;
-      this.setState({
-        loadingComments: false,
-        commentsErr,
-      })
+      console.log(err);
     });
   }
   render() { 
-    const { article_id } = this.props
-   const { comments, loadingComments, commentsErr } = this.state;
+     const { article_id } = this.props
+     const { comments, loadingComments, commentsErr } = this.state;
     return ( 
       <div>
         {loadingComments && <h2>Loading Comments...</h2>}
@@ -36,7 +32,7 @@ class Comments extends Component {
          <h2 className='Comments-title'>Comments</h2> 
          {comments.map(comment => {
           return (
-            <Comment comment_article_id={article_id} key={comment.comment_id} comment={comment}/>
+            <Comment handleDelete={this.handleDelete} comment_article_id={article_id} key={comment.comment_id} comment={comment}/>
           )
          })}
         </>
@@ -44,6 +40,17 @@ class Comments extends Component {
         { commentsErr && <p>hello</p>}
       </div>
     );
+  }
+  handleDelete = (comment_id) => {
+    this.setState(prevState => {
+      const { comments } = prevState;
+      const newCommentList = comments.filter(comment => {
+        return comment.comment_id !== comment_id;
+      })
+      return {
+        comments: newCommentList,
+      }
+    })
   }
 }
  

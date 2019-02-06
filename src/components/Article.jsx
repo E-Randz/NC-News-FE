@@ -34,7 +34,7 @@ class Article extends Component {
       article &&
         <div className="Article">
           <ArticleInfo article={article} />
-          {deleteShowing && <Delete article={article} handleClick={this.handleDeleteCheck} text='Delete Article' />}
+          {deleteShowing && <Delete itemType='article' item={article} text='Delete Article' />}
           <div className='Article-body'>
             <p>{article.body}</p>
           </div>

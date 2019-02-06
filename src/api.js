@@ -68,7 +68,7 @@ export const changeVoteCount = (voteChange, item, commentArticleId) => {
 }
 
 export const deleteItem = (article_id, comment_id) => {
-  const url = comment_id ? 'nope' : `${BASE_URL}/articles/${article_id}`;
+  const url = comment_id ? `${BASE_URL}/articles/${article_id}/comments/${comment_id}` : `${BASE_URL}/articles/${article_id}`;
   return axios.delete(url);
 }
 

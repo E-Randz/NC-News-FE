@@ -9,7 +9,7 @@ class Delete extends Component {
     redirect: null,
   }
   render() { 
-    const { text, article } = this.props;
+    const { text, itemType, item, comment_article_id  } = this.props;
 
     const { deleteShowing, redirect } = this.state;
     return ( 
@@ -17,8 +17,8 @@ class Delete extends Component {
         {deleteShowing && <button onClick={this.handleDeleteCheck} className='Delete-button'>{text}</button>}
         {!deleteShowing &&
           <> 
-          <p>Permanently Delete Article?</p>
-          <button onClick={() => this.handleDelete(article.article_id)}className='confirmDelete'>Yes</button><button onClick={this.handleDeleteCancel} className='cancelDelete'>No</button>
+          <p>Permanently Delete {itemType}?</p>
+          <button onClick={() => this.handleDelete(item, comment_article_id)} className='confirmDelete'>Yes</button><button onClick={this.handleDeleteCancel} className='cancelDelete'>No</button>
           </>
         }
         {redirect && <Redirect noThrow to={redirect} />}
@@ -36,13 +36,26 @@ class Delete extends Component {
       deleteShowing: true,
     })
   }
-  handleDelete = (article_id, comment_id) => {
-    deleteItem(article_id, comment_id)
-      .then(() => {
-        this.setState({
-          redirect: '/articles',
+  handleDelete = (item, comment_article_id) => {
+    const { handleDelete } = this.props;
+    const id = comment_article_id ? item.comment_id : item.article_id;
+
+    if (comment_article_id) {
+      deleteItem(comment_article_id, id)
+        .then(() => {
+          handleDelete(id);
         })
-      })
+        .catch(console.log);
+    } else {
+      deleteItem(id, null)
+        .then(() => {
+          this.setState({
+            redirect: '/articles',
+          })
+        })
+        .catch(console.log);
+    }
+
   }
 }
 
