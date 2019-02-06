@@ -7,26 +7,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template: 15vh 75vh 10vh/ 1fr;
-  /* grid-gap: 2em; */
 }
-.Dashboard-button {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-}
-.Dashboard-button > button{
-  font-size: 2em;
-  padding-left: 2em;
-}
-
-/* .App-page {
+.Dashboard {
   grid-row: 3 / 4;
-  display: grid;
-  grid-template-columns: 15em 1fr;
-} */
-
-/* .Dashboard {
-  grid-column: 1 / 2;
-} */
+}
+.App-page {
+  height: 100%;
+  overflow: auto;
+}
 

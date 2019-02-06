@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenSquare, faWindowClose} from '@fortawesome/free-solid-svg-icons';
+import '../styles/Dashboard.css';
+import Button from './Button';
+import { Link } from '@reach/router';
 
 class Dashboard extends Component {
   state = { 
     dashboardOpen: false,
     icon: faPenSquare,
-    user: true,
   }
-  // componentDidUpdate(_, prevState) {
-  //   const { toggleDashboard } = this.props;
-  //   const { dashboardOpen } = this.state;
-  //   if(prevState.dashboardOpen !== dashboardOpen) {
-  //     toggleDashboard(dashboardOpen);
-  //   }
-  // }
   render() { 
-    // const { user } = this.props
-    const { icon } = this.state;
+    const { user } = this.props;
+    const { icon, dashboardOpen } = this.state;
     return ( 
-      <div className='Dashboard-button'>
-        <button aria-label="Open Dashboard" ><FontAwesomeIcon onClick={this.toggleModal} icon={icon} /></button>
+      <div className='Dashboard'>
+        {user && dashboardOpen &&
+        <div className='Dashboard-buttons'>
+        <Link to='/create-article'><Button buttonPurpose={'New Article'}/></Link>
+        <Link to='/create-topic'><Button buttonPurpose={'New Topic'}/></Link>
+        </div>
+        }
+        <button className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon onClick={this.toggleModal} icon={icon} /></button>
       </div>
      );
   }
