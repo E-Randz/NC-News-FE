@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import Articles from './components/Articles';
 import Article from './components/Article';
 import Auth from './components/Auth';
+import Dashboard from './components/Dashboard';
 
 
 
@@ -28,7 +29,7 @@ class App extends Component {
       <div className="App">
         <Header toggleDashboard={this.toggleDashboard} user={user}/>
         <Auth user={user} setUser={this.setUser} >
-        {dashboardOpen && <p>Hello</p>}
+        {/* {dashboardOpen && <p>Hello</p>} */}
           <Router className="App-page">
             <Home path='/'/>
             <Articles path='/articles' />
@@ -39,6 +40,7 @@ class App extends Component {
             <User path='/users/:username' />
             <Profile path='/profile'/>
           </Router>
+          <Dashboard />
         </Auth>
       </div>
     );

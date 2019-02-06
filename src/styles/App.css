@@ -6,16 +6,18 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
-  grid-template: 5em 2em 1fr/ 1fr;
+  grid-template: 15vh 75vh 10vh/ 1fr;
   /* grid-gap: 2em; */
 }
 .Dashboard-button {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
 }
 .Dashboard-button > button{
   font-size: 2em;
-  padding: 0;
+  padding-left: 2em;
 }
 
 /* .App-page {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
 import { fetchArticles } from '../utils';
 import { Link } from '@reach/router';
+import '../styles/Articles.css';
 
 class Articles extends Component {
   state = { 

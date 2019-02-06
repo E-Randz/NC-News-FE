@@ -8,7 +8,7 @@ const Header = (props) => {
     const { user, toggleDashboard } = props;
     return ( 
       <div className='App-header'>
-        <Dashboard toggleDashboard={toggleDashboard} user={user}/>
+        {/* <Dashboard toggleDashboard={toggleDashboard} user={user}/> */}
         <Logo />
         <Nav user={user}/>
       </div>

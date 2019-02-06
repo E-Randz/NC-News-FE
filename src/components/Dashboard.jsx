@@ -6,19 +6,19 @@ class Dashboard extends Component {
   state = { 
     dashboardOpen: false,
     icon: faPenSquare,
+    user: true,
   }
-  componentDidUpdate(_, prevState) {
-    const { toggleDashboard } = this.props;
-    const { dashboardOpen } = this.state;
-    if(prevState.dashboardOpen !== dashboardOpen) {
-      toggleDashboard(dashboardOpen);
-    }
-  }
+  // componentDidUpdate(_, prevState) {
+  //   const { toggleDashboard } = this.props;
+  //   const { dashboardOpen } = this.state;
+  //   if(prevState.dashboardOpen !== dashboardOpen) {
+  //     toggleDashboard(dashboardOpen);
+  //   }
+  // }
   render() { 
-    const { user } = this.props
+    // const { user } = this.props
     const { icon } = this.state;
     return ( 
-      user && 
       <div className='Dashboard-button'>
         <button aria-label="Open Dashboard" ><FontAwesomeIcon onClick={this.toggleModal} icon={icon} /></button>
       </div>
