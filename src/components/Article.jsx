@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchOneArticle } from '../utils'
+import { fetchOneArticle } from '../api'
 import Button from './Button';
 import Comments from './Comments';
 // import { Link, Router } from '@reach/router'

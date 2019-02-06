@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
-import { fetchArticles } from '../utils';
+import { fetchArticles } from '../api';
 import { Link } from '@reach/router';
 import '../styles/Articles.css';
 

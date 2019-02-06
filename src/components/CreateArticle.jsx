@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import '../styles/CreateArticle.css'
-import { addNewArticle, fetchTopics } from '../utils';
+import { addNewArticle, fetchTopics } from '../api';
 import { Redirect } from '@reach/router';
 
 class CreateArticle extends Component {
@@ -24,6 +24,8 @@ class CreateArticle extends Component {
   render() { 
     const { topicOptions, redirect } = this.state;
     return (
+      <>
+      {!redirect &&
       <div className='Create-article'>
       <h2>Create Article</h2>
         <form onSubmit={this.handleSubmit}>
@@ -38,8 +40,10 @@ class CreateArticle extends Component {
           <textarea onChange={this.handleChange} name="body" id="" cols="30" rows="10"></textarea>
           <Button buttonPurpose='Submit'/>
         </form>
-        {/* {redirect && <Redirect to={redirect} />} */}
       </div>
+      }
+      {redirect && <Redirect noThrow to={redirect} />}
+      </>
     );
   }
   handleSubmit = (e) => {

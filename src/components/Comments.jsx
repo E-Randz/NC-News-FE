@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchComments } from '../utils';
+import { fetchComments } from '../api';
 import Comment from './Comment';
 
 class Comments extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchUsers } from '../utils';
+import { fetchUsers } from '../api';
 import UserItem from './UserItem';
 
 

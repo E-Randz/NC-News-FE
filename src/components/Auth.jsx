@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getUserByUsername } from '../utils';
+import { getUserByUsername } from '../api';
 
 class Auth extends Component {
   state = { 

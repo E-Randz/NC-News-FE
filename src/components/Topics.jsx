@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchTopics } from '../utils';
+import { fetchTopics } from '../api';
 import { Link } from '@reach/router';
 
 
