@@ -18,7 +18,10 @@ class Comments extends Component {
       })
     })
     .catch(err => {
-      console.log(err);
+      this.setState({
+        commentsErr: 'There are no comments for this article',
+        loadingComments: false,
+      })
     });
   }
   render() { 
@@ -37,7 +40,7 @@ class Comments extends Component {
          })}
         </>
         }
-        { commentsErr && <p>hello</p>}
+        { commentsErr && <p>{commentsErr}</p>}
       </div>
     );
   }

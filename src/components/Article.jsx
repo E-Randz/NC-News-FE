@@ -47,7 +47,6 @@ class Article extends Component {
     );
   }
   handleClick = (e) => {
-    console.log(e);
     const {innerText} = e.target;
     if (innerText === 'Show Comments') {
       this.setState({
