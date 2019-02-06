@@ -19,7 +19,7 @@ class Comments extends Component {
     })
     .catch(err => {
       this.setState({
-        commentsErr: 'There are no comments for this article',
+        commentsErr: 'There are no comments for this article yet!',
         loadingComments: false,
       })
     });
@@ -45,6 +45,8 @@ class Comments extends Component {
     );
   }
   handleDelete = (comment_id) => {
+    const {decrementCommentCount} = this.props
+    console.log(decrementCommentCount);
     this.setState(prevState => {
       const { comments } = prevState;
       const newCommentList = comments.filter(comment => {
@@ -54,6 +56,7 @@ class Comments extends Component {
         comments: newCommentList,
       }
     })
+    decrementCommentCount()
   }
 }
  
