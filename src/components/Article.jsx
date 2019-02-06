@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchOneArticle } from '../api'
 import Button from './Button';
 import Comments from './Comments';
+import Votes from './Votes';
 // import { Link, Router } from '@reach/router'
 
 class Article extends Component {
@@ -33,7 +34,7 @@ class Article extends Component {
              <p className="Article-author">Author: {article.author}</p>
              <p className="Article-topic">Topic: {article.topic}</p>
              <p className='Article-createdAt'>{article.created_at}</p>
-             <p className="Article-votes">Votes: {article.votes}</p>
+             <Votes votes={article.votes} />
              <p className="Article-commentCount">Comments: {article.comment_count}</p>
           </div>
           <div className='Article-body'>
