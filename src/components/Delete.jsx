@@ -8,6 +8,8 @@ class Delete extends Component {
     deleteShowing: true,
     redirect: null,
   }
+
+
   render() { 
     const { text, itemType, item, comment_article_id  } = this.props;
 

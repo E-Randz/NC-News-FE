@@ -23,6 +23,7 @@ class Article extends Component {
     })
   }
   render() { 
+    const { user } = this.props;
     const { article, commentsButton, comments, commentButtonPurpose, deleteShowing } = this.state;
     if (article) {
       let timestamp = article.created_at.toString();
@@ -40,7 +41,7 @@ class Article extends Component {
           </div>
           <div className='Article-comments'>
             {commentsButton && <Button handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
-            {comments && <Comments decrementCommentCount={this.decrementCommentCount} article_id={this.props.article_id} />
+            {comments && <Comments user={user} decrementCommentCount={this.decrementCommentCount} article_id={this.props.article_id} />
             }
           </div>
         </div>
