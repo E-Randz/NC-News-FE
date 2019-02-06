@@ -39,3 +39,14 @@ export const getUserByUsername = async (username) => {
   const { data } = await axios.get(url)
   return data;
 }
+
+export const addNewArticle = async (username, topic, title, body) => {
+  const url = `${BASE_URL}/topics/${topic}/articles`;
+  const postBody = {
+    username,
+    title,
+    body,
+  }
+  const { data } = await axios.post(url, postBody)
+  return data;
+}

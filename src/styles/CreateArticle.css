@@ -1,0 +1,9 @@
+.Create-article {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+input, textarea {
+  border: 2px solid black;
+}
