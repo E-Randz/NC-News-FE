@@ -61,8 +61,8 @@ export const addNewTopic = async (slug, description) => {
   return data;
 }
 
-export const changeVoteCount = (voteChange, id) => {
-  const url = `${BASE_URL}/articles/${id}`;
+export const changeVoteCount = (voteChange, item, commentArticleId) => {
+  const url = commentArticleId ? `${BASE_URL}/articles/${commentArticleId}/comments/${item.comment_id}` : `${BASE_URL}/articles/${item.article_id}`;
   const patchBody = { inc_votes: voteChange };
   return axios.patch(url, patchBody)
 }

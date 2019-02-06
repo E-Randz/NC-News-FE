@@ -27,8 +27,8 @@ class Votes extends Component {
     );
   }
   handleVoteClick = (voteChange) => {
-    const { id } = this.props;
-    changeVoteCount(voteChange, id)
+    const { item, comment_article_id } = this.props;
+    changeVoteCount(voteChange, item, comment_article_id)
     this.setState(prevProps => {
         return {
           voteChange: prevProps.voteChange + voteChange,

@@ -14,9 +14,6 @@ import Dashboard from './components/Dashboard';
 import CreateArticle from './components/CreateArticle';
 import CreateTopic from './components/CreateTopic';
 
-
-
-
 class App extends Component {
   state = {
     user: {
