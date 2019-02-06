@@ -34,7 +34,7 @@ class Article extends Component {
              <p className="Article-author">Author: {article.author}</p>
              <p className="Article-topic">Topic: {article.topic}</p>
              <p className='Article-createdAt'>{article.created_at}</p>
-             <Votes votes={article.votes} />
+             <Votes votes={article.votes} id={article.article_id} />
              <p className="Article-commentCount">Comments: {article.comment_count}</p>
           </div>
           <div className='Article-body'>

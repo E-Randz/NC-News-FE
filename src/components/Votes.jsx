@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Button from './Button';
+import { changeVoteCount } from '../api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons';
+import '../styles/Dashboard.css';
 
 class Votes extends Component {
   state = { 
@@ -13,10 +17,23 @@ class Votes extends Component {
     })
   }
   render() { 
-    const { votes } = this.state;
+    const { votes, voteChange } = this.state;
     return ( 
-      <span><Button buttonPurpose='Vote up'/><span>{votes}</span><Button buttonPurpose='Vote up'/></span>
+      <p>
+        <Button disabled={voteChange === 1} handleClick={() => this.handleVoteClick(1)} buttonPurpose={<FontAwesomeIcon onClick={this.toggleModal} icon={faThumbsUp} />}/>
+          <span>{votes + voteChange}</span>
+        <Button disabled={voteChange === -1} handleClick={() => this.handleVoteClick(-1)} buttonPurpose={<FontAwesomeIcon onClick={this.toggleModal} icon={faThumbsDown} />}/>
+      </p>
     );
+  }
+  handleVoteClick = (voteChange) => {
+    const { id } = this.props;
+    changeVoteCount(voteChange, id)
+    this.setState(prevProps => {
+        return {
+          voteChange: prevProps.voteChange + voteChange,
+        }
+    })
   }
 }
  

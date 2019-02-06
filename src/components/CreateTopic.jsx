@@ -14,6 +14,7 @@ class CreateTopic extends Component {
     return ( 
       <>
       <div className='Create-topic'>
+        <h2>Create Topic</h2>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type="text" name='slug' value={slug} placeholder='enter topic name'/>
           <input onChange={this.handleChange} type="text" name='description' value={description} placeholder='enter topic description'/>
