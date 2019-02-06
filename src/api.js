@@ -50,3 +50,15 @@ export const addNewArticle = async (username, topic, title, body) => {
   const { data } = await axios.post(url, postBody)
   return data;
 }
+
+export const addNewTopic = async (slug, description) => {
+  const url = `${BASE_URL}/topics`;
+  const postBody = {
+    slug,
+    description,
+  }
+  const { data } = await axios.post(url, postBody)
+  return data;
+}
+
+

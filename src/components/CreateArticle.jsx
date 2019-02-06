@@ -22,7 +22,7 @@ class CreateArticle extends Component {
       })
   }
   render() { 
-    const { topicOptions, redirect } = this.state;
+    const { topicOptions, redirect, title, body } = this.state;
     return (
       <>
       {!redirect &&
@@ -36,8 +36,8 @@ class CreateArticle extends Component {
             })}
             </select>
           }
-          <input onChange={this.handleChange} type="text" name='title'/>
-          <textarea onChange={this.handleChange} name="body" id="" cols="30" rows="10"></textarea>
+          <input value={title} placeholder='enter title' onChange={this.handleChange} type="text" name='title'/>
+          <textarea value={body} onChange={this.handleChange} name="body" id="" cols="30" rows="10"></textarea>
           <Button buttonPurpose='Submit'/>
         </form>
       </div>

@@ -11,7 +11,9 @@ import Articles from './components/Articles';
 import Article from './components/Article';
 import Auth from './components/Auth';
 import Dashboard from './components/Dashboard';
-import CreateArticle from './components/CreateArticle'
+import CreateArticle from './components/CreateArticle';
+import CreateTopic from './components/CreateTopic';
+
 
 
 
@@ -33,8 +35,9 @@ class App extends Component {
             <Home path='/'/>
             <Articles path='/articles' />
             <Article path='/articles/:article_id' />
-            <CreateArticle user={user} path='create-article'/>
+            <CreateArticle user={user} path='/create-article'/>
             <Topics path='/topics'/>
+            <CreateTopic path='/create-topic'/>
             <Articles path='/topics/:topic/articles' />
             <Users path='/users' />
             <User path='/users/:username' />
