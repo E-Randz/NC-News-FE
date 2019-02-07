@@ -1,3 +1,47 @@
-.Articles {
-
+.Articles h1 {
+  color: var(--petrol);
 }
+.Articles h3 {
+  color: var(--red);
+}
+.Articles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  margin: 0 1em;
+}
+
+.Article-item {
+  border-radius: 2em;
+  padding: 1em;
+  background: #eee;
+}
+
+.Article-item a {
+  text-decoration: none;
+  color: var(--petrol);
+}
+
+.Article-item a:hover {
+  text-decoration: none;
+  color: var(--red);
+}
+
+.Article-author {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--grey);
+  margin: 0 0 1em 0;
+}
+.Article-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--lightgrey);
+  border-radius: 2em;
+}
+
+.Article-createdAt {
+  grid-column: 1 / 3;
+}
+
+

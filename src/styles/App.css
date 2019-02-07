@@ -20,6 +20,7 @@ body {
   grid-row: 3 / 4;
 }
 .App-page {
+  background: var(--lightgrey);
   height: 100%;
   overflow: auto;
 }
