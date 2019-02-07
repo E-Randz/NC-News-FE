@@ -1,8 +1,9 @@
 import axios from 'axios'
 const BASE_URL = 'https://northcoders-news-project.herokuapp.com/api'
 
-export const fetchArticles = async (topic) => {
-  const url = topic ? `${BASE_URL}/topics/${topic}/articles` : `${BASE_URL}/articles`;
+export const fetchArticles = async (topic, queries) => {
+  let url = topic ? `${BASE_URL}/topics/${topic}/articles` : `${BASE_URL}/articles`;
+  url = queries ? url + queries : url;
   const { data: { articles } } = await axios.get(url);
   return articles;
 }

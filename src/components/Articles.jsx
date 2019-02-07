@@ -3,26 +3,33 @@ import SortAndFilter from './SortAndFilter';
 import { fetchArticles } from '../api';
 import { Link } from '@reach/router';
 import '../styles/Articles.css';
+import { assembleQueryString } from '../utils';
 
 class Articles extends Component {
   state = { 
     articles: [],
-    sortAndFilterCriteria: null,
+    queries: {},
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { topic } = this.props;
-    const articles = await fetchArticles(topic);
-    this.setState({
-      articles
-    })
+    fetchArticles(topic)
+      .then((articles) => {
+        this.setState({
+          articles
+        })
+      })
   }
   render() { 
     const { articles } = this.state
+    const { topic } = this.props;
+    const sortFields = ['created_at', 'title', 'topic', 'created_by']
     return ( 
       <div className='Articles'>
-        <SortAndFilter />
+        <SortAndFilter handleFilterSubmit={this.handleFilterSubmit} sortFields={sortFields} />
         <div className='Articles-results'>
+          <h2>Articles</h2>
+          {topic && <h3>~{topic}~</h3>}
           {articles.map(article => {
             const {article_id, title, author, topic, comment_count, votes } = article;
             let timestamp = article.created_at.toString();
@@ -42,6 +49,20 @@ class Articles extends Component {
       </div>
     );
   }
+  handleFilterSubmit = (e, sortBy, limit, sortOrder) => {
+    e.preventDefault();
+    const newQueries = {sortBy, limit, sortOrder}
+    const { topic } = this.props;
+    const queryString = assembleQueryString(sortBy, limit, sortOrder);
+    fetchArticles(topic, queryString)
+      .then((articles) => {
+        this.setState({
+          articles,
+          queries: newQueries,
+        })
+      })
+  }
 }
+
  
 export default Articles;

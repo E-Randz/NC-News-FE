@@ -14,13 +14,15 @@ class Article extends Component {
    deleteShowing: false,
    deleteCheck: false,
   }
-  async componentDidMount() {
+  componentDidMount() {
     const { article_id, user } = this.props;
-    const article  = await fetchOneArticle(article_id);
-    this.setState({
-      article,
-      deleteShowing: user.username === article.author,
-    })
+    fetchOneArticle(article_id)
+      .then((article) => {
+        this.setState({
+          article,
+          deleteShowing: user.username === article.author,
+        })
+      })
   }
   render() { 
     const { user } = this.props;
