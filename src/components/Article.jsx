@@ -4,6 +4,7 @@ import Button from './Button';
 import Comments from './Comments';
 import Delete from './Delete';
 import ArticleInfo from './ArticleInfo';
+import '../styles/Article.css';
 
 class Article extends Component {
   state = { 

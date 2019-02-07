@@ -1,0 +1,15 @@
+.Article-title {
+  color: var(--petrol);
+}
+.Comments-And-Votes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--lightpanel);
+  border-radius: 2em;
+}
+.Article-topic {
+  color: var(--red);
+}
+.Article-commentCount {
+  font-size: 1.5em;
+}

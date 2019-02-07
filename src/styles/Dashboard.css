@@ -1,7 +1,6 @@
 .Dashboard {
   background: var(--petrol);
   box-sizing: border-box;
-  border-top: 0.5em solid var(--red);
   display: grid;
   grid-template-columns: 80vw 20vw;
   grid-template-rows: 1fr;
