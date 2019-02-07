@@ -4,6 +4,21 @@
   align-content: center;
   justify-content: center;
 }
-input, textarea {
-  border: 2px solid black;
+
+
+.Create-article {
+  border-radius: 2em;
+  background: var(--lightpanel);
+  margin: 1em;
+  padding: 1em;
+}
+.Create-article form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  grid-gap: 1em;
+}
+#topic {
+  background: #fff;
 }

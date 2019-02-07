@@ -29,14 +29,19 @@ class CreateArticle extends Component {
       <h2>Create Article</h2>
         <form onSubmit={this.handleSubmit}>
           {topicOptions && 
-            <select name='topic' onChange={this.handleChange}>
+            <>
+            <label htmlFor='topic'>Topic:</label>
+            <select id='topic' name='topic' onChange={this.handleChange}>
             {topicOptions.map(topic => {
               return <option key={topic} value={topic}>{topic}</option>
             })}
             </select>
+            </>
           }
-          <input value={title} placeholder='enter title' onChange={this.handleChange} type="text" name='title'/>
-          <textarea value={body} onChange={this.handleChange} name="body" id="" cols="30" rows="10"></textarea>
+          <label htmlFor='title'>Title:</label>
+          <input value={title} id='title' placeholder='enter title' onChange={this.handleChange} type="text" name='title'/>
+          <label htmlFor='body'>Body:</label>
+          <textarea id='body' value={body} onChange={this.handleChange} name="body" cols="30" rows="10"></textarea>
           <Button buttonPurpose='Submit'/>
         </form>
       </div>
