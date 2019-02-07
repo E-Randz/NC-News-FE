@@ -1,0 +1,20 @@
+.Topics {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 2em;
+  grid-gap: 1em;
+}
+
+.Topic-item {
+  background: var(--lightpanel);
+  border-radius: 2em;
+  padding: 1em;
+}
+.Topic-slug a{
+  text-decoration: none;
+  color: var(--petrol);
+}
+.Topic-slug a:hover{
+  text-decoration: none;
+  color: var(--red);
+}

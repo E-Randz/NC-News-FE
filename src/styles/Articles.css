@@ -14,7 +14,7 @@
 .Article-item {
   border-radius: 2em;
   padding: 1em;
-  background: #eee;
+  background: var(--lightpanel);
 }
 
 .Article-item a {
