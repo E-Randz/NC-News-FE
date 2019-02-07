@@ -15,6 +15,7 @@
   border-radius: 2em;
   padding: 1em;
   background: var(--lightpanel);
+  box-shadow: 5px 5px 5px var(--grey);
 }
 
 .Article-item a {
@@ -42,6 +43,13 @@
 
 .Article-createdAt {
   grid-column: 1 / 3;
+}
+.Articles-filter {
+  margin-bottom: 1em;
+  background: var(--petrol);
+  font-size: 1.2em;
+  color: var(--lightpanel);
+  border-radius: 1em;
 }
 
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button';
 import '../styles/CreateArticle.css'
 import { addNewArticle, fetchTopics } from '../api';
-import { Redirect } from '@reach/router';
+import { navigate } from '@reach/router';
 
 class CreateArticle extends Component {
   state = { 
@@ -10,7 +10,6 @@ class CreateArticle extends Component {
       body: '',
       topic: '',
       topicOptions: null,
-      redirect: null,
   }
   componentDidMount() {
     fetchTopics()
@@ -42,7 +41,6 @@ class CreateArticle extends Component {
         </form>
       </div>
       }
-      {redirect && <Redirect noThrow to={redirect} />}
       </>
     );
   }
@@ -51,11 +49,10 @@ class CreateArticle extends Component {
     const { title, body, topic } = this.state;
     const { user: { username } } = this.props;
     addNewArticle(username, topic, title, body)
-      .then(({article: { article_id }}) => {
+      .then(({article}) => {
+        const { article_id } = article 
         const path = `/articles/${article_id}`
-        this.setState({
-          redirect: path,
-        })
+        navigate(path, {state: {article}})
       })
       .catch((err) => console.log(err));
   }

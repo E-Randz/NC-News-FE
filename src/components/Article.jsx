@@ -16,14 +16,20 @@ class Article extends Component {
    deleteCheck: false,
   }
   componentDidMount() {
-    const { article_id, user } = this.props;
-    fetchOneArticle(article_id)
-      .then((article) => {
-        this.setState({
-          article,
-          deleteShowing: user.username === article.author,
-        })
-      })
+    if (this.props.location.state.article) {
+      const { article } = this.props.location.state;
+      article.comment_count = 0;
+      this.setState({article})
+    } else {
+        const { article_id, user } = this.props;
+        fetchOneArticle(article_id)
+          .then((article) => {
+            this.setState({
+              article,
+              deleteShowing: user.username === article.author,
+            })
+          })
+      }
   }
   render() { 
     const { user } = this.props;

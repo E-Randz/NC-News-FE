@@ -1,0 +1,15 @@
+.Sort-Filter {
+  border-radius: 2em;
+  padding: 1em;
+  background: var(--lightpanel);
+  box-shadow: 5px 5px 5px var(--grey);
+  margin: 1em;
+
+}
+.Sort-Filter form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  
+}

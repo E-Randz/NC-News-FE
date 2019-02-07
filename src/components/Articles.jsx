@@ -4,6 +4,7 @@ import { fetchArticles } from '../api';
 import { Link } from '@reach/router';
 import '../styles/Articles.css';
 import { assembleQueryString } from '../utils';
+import Button from './Button';
 
 class Articles extends Component {
   state = { 
@@ -13,6 +14,7 @@ class Articles extends Component {
       limit: '', 
       sortOrder: '',
     },
+    toggleFilter: 'Filter',
   }
 
   componentDidMount() {
@@ -37,15 +39,16 @@ class Articles extends Component {
     }
   }
   render() { 
-    const { articles, queries } = this.state
+    const { articles, queries, toggleFilter } = this.state
     const { topic } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by']
     return ( 
       <div className='Articles'>
-        <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />
         <div className='Articles-results'>
           <h1>Articles</h1>
           {topic && <h3>~{topic}~</h3>}
+          <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
+          {toggleFilter !== 'Filter' && <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />}
           <div className='Articles-list'>
             {articles.map(article => {
               const {article_id, title, author, topic, comment_count, votes } = article;
@@ -92,6 +95,20 @@ class Articles extends Component {
         }
 
       })
+  }
+  toggleFilter = (e) => {
+    console.log(e.target.className);
+    const { innerText } = e.target;
+    if (innerText === 'Filter') {
+      this.setState({
+        toggleFilter: 'Hide Filter',
+      })
+    } else {
+      this.setState({
+        toggleFilter: 'Filter',
+      })
+    }
+
   }
 }
 

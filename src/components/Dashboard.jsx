@@ -29,7 +29,7 @@ class Dashboard extends Component {
         <Link to='/create-topic'><Button buttonPurpose={'New Topic'}/></Link>
         </div>
         }
-        <button className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon onClick={toggleDashboard} icon={icon} /></button>
+        <button className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon onClick={toggleDashboard} icon={icon} className='dashboard-icon' /></button>
       </div>
      );
   }

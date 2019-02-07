@@ -31,6 +31,7 @@ class Comments extends Component {
   render() { 
      const { article_id, user } = this.props
      const { comments, loadingComments, commentsErr, newComment } = this.state;
+
     return ( 
       <div>
         {loadingComments && <h2>Loading Comments...</h2>}
