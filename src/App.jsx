@@ -21,14 +21,15 @@ class App extends Component {
       name: "Tom Tickle",
       avatar_url: "https://image.flaticon.com/icons/svg/145/145842.svg"
     },
+    dashboardOpen: false,
   }
   render() {
-    const { user } = this.state;
+    const { user, dashboardOpen } = this.state;
     return (
       <div className="App">
-        <Header toggleDashboard={this.toggleDashboard} user={user}/>
+        <Header user={user}/>
         <Auth user={user} setUser={this.setUser} >
-          <Router className="App-page">
+          <Router onClick={this.toggleDashboard} className="App-page">
             <Home path='/'/>
             <Articles path='/articles' />
             <Article user={user} path='/articles/:article_id' />
@@ -40,7 +41,7 @@ class App extends Component {
             <User path='/users/:username' />
             <Profile path='/profile'/>
           </Router>
-          <Dashboard user={user} />
+          <Dashboard dashboardOpen={dashboardOpen} toggleDashboard={this.toggleDashboard} user={user} />
         </Auth>
       </div>
     );
@@ -49,6 +50,21 @@ class App extends Component {
     this.setState({
       user,
     })
+  }
+  toggleDashboard = (e) => {
+    const { dashboardOpen } = this.state;
+    const { tagName } = e.target;
+    if (!dashboardOpen) {
+      if(tagName === 'path' || tagName === 'svg'){
+        this.setState({
+          dashboardOpen: true,
+        })
+      }
+    } else {
+      this.setState({
+        dashboardOpen: false,
+      })
+    }
   }
 }
 

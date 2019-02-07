@@ -7,12 +7,20 @@ import { Link } from '@reach/router';
 
 class Dashboard extends Component {
   state = { 
-    dashboardOpen: false,
     icon: faPenSquare,
   }
+  componentDidUpdate(prevProps, _){
+    const { dashboardOpen } = this.props;
+    if (dashboardOpen !== prevProps.dashboardOpen){
+      const icon = dashboardOpen ? faWindowClose : faPenSquare;
+      this.setState({
+        icon,
+      })
+    }
+  }
   render() { 
-    const { user } = this.props;
-    const { icon, dashboardOpen } = this.state;
+    const { user, toggleDashboard, dashboardOpen } = this.props;
+    const { icon } = this.state;
     return ( 
       <div className='Dashboard'>
         {user && dashboardOpen &&
@@ -21,24 +29,11 @@ class Dashboard extends Component {
         <Link to='/create-topic'><Button buttonPurpose={'New Topic'}/></Link>
         </div>
         }
-        <button className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon onClick={this.toggleModal} icon={icon} /></button>
+        <button className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon onClick={toggleDashboard} icon={icon} /></button>
       </div>
      );
   }
-  toggleModal = () => {
-    const { dashboardOpen } = this.state;
-    if (!dashboardOpen) {
-      this.setState({
-        dashboardOpen: true,
-        icon: faWindowClose,
-      })
-    } else {
-      this.setState({
-        dashboardOpen: false,
-        icon: faPenSquare,
-      })
-    }
-  }
+
 }
  
 export default Dashboard;
