@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1em;
-  margin: 0 1em;
+  margin: 1em 1em;
 }
 
 .Article-item {
@@ -45,7 +45,6 @@
   grid-column: 1 / 3;
 }
 .Articles-filter {
-  margin-bottom: 1em;
   background: var(--petrol);
   font-size: 1.2em;
   color: var(--lightpanel);

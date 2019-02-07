@@ -1,0 +1,11 @@
+.Comments-list {
+  background: var(--lightpanel);
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: 2em;
+  display: grid;
+  grid-gap: 1em;
+}
+.Comments-title {
+  margin-top: 0;
+}

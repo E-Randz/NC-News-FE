@@ -1,12 +1,13 @@
 import React from 'react';
 import Button from './Button';
 import { Link } from '@reach/router';
+import '../styles/UserItem.css';
 
 const UserItem = (props) => {
   const { username, name, avatar_url } = props.user;
   return ( 
     <div className="User-item">
-      <div>
+      <div >
         <img src={avatar_url} alt={username} className="User-avatar"/>
       </div>
       <p className="User-username">Username: {username}</p>

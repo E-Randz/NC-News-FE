@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchUsers } from '../api';
 import UserItem from './UserItem';
+import '../styles/Users.css';
 
 
 class Users extends Component {
@@ -21,12 +22,13 @@ class Users extends Component {
     const { loadingUsers, users} = this.state;
     return ( 
       <div className='Users'>
-      {loadingUsers && <p>Loading Users...</p>}
-      {users.map(user => {
-        return (
-          <UserItem key={user.username} user={user} />
-        )
-      })}
+      <h1>Users</h1>
+        {loadingUsers && <p>Loading Users...</p>}
+        {users.map(user => {
+          return (
+            <UserItem key={user.username} user={user} />
+          )
+        })}
       </div>
     );
   }

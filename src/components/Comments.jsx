@@ -33,12 +33,12 @@ class Comments extends Component {
      const { comments, loadingComments, commentsErr, newComment } = this.state;
 
     return ( 
-      <div>
+      <div className='Comments-list'>
         {loadingComments && <h2>Loading Comments...</h2>}
         {comments &&
         <>
          <h2 className='Comments-title'>Comments</h2> 
-         <Button handleClick={this.handleNewComment} className='New-Comment-Button' buttonPurpose='Add New Comment'/>
+         <Button handleClick={this.handleNewComment} className='New-Comment-Button' buttonPurpose='New Comment'/>
          {newComment && <CreateComment handleSubmit={this.handleSubmit}/>}
          {comments.map(comment => {
           return (

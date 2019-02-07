@@ -8,18 +8,29 @@
 
 .Dashboard-buttons {
   grid-column: 1 / 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-/* .Dashboard-buttons >button {
-  display: inline-block;
-} */
+
+.Dashboard-buttons a {
+  font-size: 1em;
+  color: var(--lightpanel);
+  text-decoration: none;
+  background: var(--red);
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
 .Dashboard-open {
   align-self: center;
   grid-column: 2 / 3;
   font-size: 2em;
-  margin-right: 1em;
+  margin-right: 0.5em;
   display: inline-block;
   background: var(--petrol);
   border: none;
+  color: var(--red);
 }
 
 .Dashboard-open:active,
