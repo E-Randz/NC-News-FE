@@ -1,3 +1,11 @@
+#root{
+  --blue: #3CDBD3;
+  --petrol: #4A6C6F;
+  --red: #ED474A;
+  --lightgrey: #DBDBDB;
+  --grey: #817F82;
+}
+
 body {
   margin: 0;
 }

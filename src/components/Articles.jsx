@@ -20,13 +20,25 @@ class Articles extends Component {
         })
       })
   }
+
+  componentDidUpdate() {
+    if(!this.props.topic) {
+      fetchArticles()
+        .then((articles) => {
+          this.setState({
+            articles,
+            queries: {},
+          })
+        })
+    }
+  }
   render() { 
-    const { articles } = this.state
+    const { articles, queries } = this.state
     const { topic } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by']
     return ( 
       <div className='Articles'>
-        <SortAndFilter handleFilterSubmit={this.handleFilterSubmit} sortFields={sortFields} />
+        <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} sortFields={sortFields} />
         <div className='Articles-results'>
           <h2>Articles</h2>
           {topic && <h3>~{topic}~</h3>}
