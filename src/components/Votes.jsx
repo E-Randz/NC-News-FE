@@ -3,7 +3,8 @@ import Button from './Button';
 import { changeVoteCount } from '../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons';
-import '../styles/Dashboard.css';
+// import '../styles/Dashboard.css';
+import '../styles/Votes.css';
 
 class Votes extends Component {
   state = { 
@@ -19,7 +20,7 @@ class Votes extends Component {
   render() { 
     const { votes, voteChange } = this.state;
     return ( 
-      <p>
+      <p className='Votes'>
         <Button disabled={voteChange === 1} handleClick={() => this.handleVoteClick(1)} buttonPurpose={<FontAwesomeIcon onClick={this.toggleModal} icon={faThumbsUp} />}/>
           <span>{votes + voteChange}</span>
         <Button disabled={voteChange === -1} handleClick={() => this.handleVoteClick(-1)} buttonPurpose={<FontAwesomeIcon onClick={this.toggleModal} icon={faThumbsDown} />}/>

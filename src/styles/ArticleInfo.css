@@ -1,15 +1,20 @@
 .Article-title {
   color: var(--petrol);
 }
+.Article-header, .Comments-And-Votes {
+    background: var(--lightpanel);
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 2em;
+    box-shadow: 5px 5px 5px var(--grey);
+}
 .Comments-And-Votes {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--lightpanel);
-  border-radius: 2em;
 }
 .Article-topic {
   color: var(--red);
 }
-.Article-commentCount {
+.ArticleInfo-commentCount {
   font-size: 1.5em;
 }

@@ -8,13 +8,15 @@ const ArticleInfo = (props) => {
   const { article } = props
   return ( 
     <div className="Article-info"> 
+    <div className="Article-header">
       <h1 className='Article-title'>{article.title}</h1>
       <p className="Article-author">{article.author}</p>
       <p className="Article-topic">~{article.topic}~</p>
-      <p className='Article-createdAt'>{article.created_at}</p>
+      <p className='Article-createdAt'>{article.created_at}</p> 
+    </div>
       <div className="Comments-And-Votes">
         <Votes votes={article.votes} item={article} />
-        <p className="Article-commentCount"><FontAwesomeIcon icon={faComment}/> {article.comment_count}</p>
+        <p className="ArticleInfo-commentCount"><FontAwesomeIcon icon={faComment}/> {article.comment_count}</p>
       </div>
     </div>
   );
