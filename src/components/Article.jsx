@@ -41,7 +41,7 @@ class Article extends Component {
           </div>
           <div className='Article-comments'>
             {commentsButton && <Button className='Show-comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
-            {comments && <Comments user={user} decrementCommentCount={this.decrementCommentCount} article_id={this.props.article_id} />
+            {comments && <Comments user={user} changeCommentCount={this.changeCommentCount} article_id={this.props.article_id} />
             }
           </div>
         </div>
@@ -61,13 +61,13 @@ class Article extends Component {
       })
     }
   }
-  decrementCommentCount = () => {
+  changeCommentCount = (change) => {
     this.setState(prevState => {
       const { article } = prevState;
       return {
         article: {
           ...article,
-          comment_count: article.comment_count - 1,
+          comment_count: +article.comment_count + change,
         }
       }
     })

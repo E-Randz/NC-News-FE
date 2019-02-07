@@ -51,7 +51,7 @@ class Comments extends Component {
     );
   }
   handleDelete = (comment_id) => {
-    const {decrementCommentCount} = this.props
+    const {changeCommentCount} = this.props
     this.setState(prevState => {
       const { comments } = prevState;
       const newCommentList = comments.filter(comment => {
@@ -61,7 +61,7 @@ class Comments extends Component {
         comments: newCommentList,
       }
     })
-    decrementCommentCount()
+    changeCommentCount(-1)
   }
 
   handleNewComment = () => {
@@ -71,6 +71,7 @@ class Comments extends Component {
   }
 
   handleSubmit = (e, body) => {
+    const { changeCommentCount } = this.props;
     e.preventDefault();
     const { article_id, user } = this.props
     addNewComment(article_id, user.username, body)
@@ -85,7 +86,7 @@ class Comments extends Component {
         })
       })
       .catch(console.log)
-
+      changeCommentCount(1)
   }
 }
  
