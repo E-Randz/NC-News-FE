@@ -40,7 +40,7 @@ class Article extends Component {
             <p>{article.body}</p>
           </div>
           <div className='Article-comments'>
-            {commentsButton && <Button handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
+            {commentsButton && <Button className='Show-comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
             {comments && <Comments user={user} decrementCommentCount={this.decrementCommentCount} article_id={this.props.article_id} />
             }
           </div>

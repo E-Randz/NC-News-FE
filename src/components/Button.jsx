@@ -2,9 +2,9 @@ import React from 'react';
 import '../styles/Button.css'
 ;
 const Button = (props) => {
-  const { buttonPurpose, handleClick, disabled = false } = props;
+  const { className, buttonPurpose, handleClick, disabled = false } = props;
   return ( 
-    <button disabled={disabled} onClick={handleClick}>{ buttonPurpose }</button>
+    <button className={className} disabled={disabled} onClick={handleClick}>{ buttonPurpose }</button>
   );
 }
  

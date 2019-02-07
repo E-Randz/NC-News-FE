@@ -72,5 +72,15 @@ export const deleteItem = (article_id, comment_id) => {
   return axios.delete(url);
 }
 
+export const addNewComment = (article_id, username, body) => {
+  const url = `${BASE_URL}/articles/${article_id}/comments`;
+  const postBody = {
+    username,
+    body,
+  }
+  return axios.post(url, postBody)
+}
+
+
 
 
