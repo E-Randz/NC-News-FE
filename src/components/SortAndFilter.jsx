@@ -1,37 +1,31 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Button from './Button';
 
-class SortAndFilter extends Component  {
-    state= {
-      limit: null,
-      sortBy: null,
-      sortOrder: null,
-    }
-    render() {
-    const { sortFields, handleFilterSubmit } = this.props;
-    const { sortBy, limit, sortOrder } = this.state;
+const SortAndFilter = (props) => {
+
+    const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder } = props;
     return ( 
       <div className='Sort-Filter'>
       <h3>Sort and Filter</h3>
-      <form onSubmit={(e) => handleFilterSubmit(e, sortBy, limit, sortOrder)}>
+      <form onSubmit={handleFilterSubmit}>
         <div className='limitdiv'>
           <label htmlFor="limit">limit:</label>
-          <input onChange={this.handleFilterChange} type="number" name="limit" id="limit"/>
+          <input value={limit} onChange={handleFilterChange} type="number" name="limit" id="limit"/>
         </div>
 
         <div className='sort-by-div'>
           <label htmlFor="sort-by">sort by:</label>
-          <select onChange={this.handleFilterChange} name="sortBy" id="sort-by">
+          <select value={sortBy} onChange={handleFilterChange} name="sortBy" id="sort-by">
             {sortFields.map(field => {
               return (
-                <option key={field} value={field}>{field}</option>
+                <option key={field}>{field}</option>
               )
             })}
           </select>
         </div>
         <div className='sort-order-div'>
           <label htmlFor="sort-order">sort order:</label>
-          <select onChange={this.handleFilterChange} name="sortOrder" id="sort-order">
+          <select value={sortOrder} onChange={handleFilterChange} name="sortOrder" id="sort-order">
             <option value="asc">asc</option>
             <option value="desc">desc</option>
           </select>
@@ -41,12 +35,5 @@ class SortAndFilter extends Component  {
     </div>
     );
   }
-  handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    })
-  }
-}
  
 export default SortAndFilter;

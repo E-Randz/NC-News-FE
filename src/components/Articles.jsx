@@ -8,7 +8,11 @@ import { assembleQueryString } from '../utils';
 class Articles extends Component {
   state = { 
     articles: [],
-    queries: {},
+    queries: {
+      sortBy: '',
+      limit: '', 
+      sortOrder: '',
+    },
   }
 
   componentDidMount() {
@@ -21,8 +25,8 @@ class Articles extends Component {
       })
   }
 
-  componentDidUpdate() {
-    if(!this.props.topic) {
+  componentDidUpdate(prevProps) {
+    if(this.props.topic !== prevProps.topic ) {
       fetchArticles()
         .then((articles) => {
           this.setState({
@@ -38,7 +42,7 @@ class Articles extends Component {
     const sortFields = ['created_at', 'title', 'topic', 'created_by']
     return ( 
       <div className='Articles'>
-        <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} sortFields={sortFields} />
+        <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />
         <div className='Articles-results'>
           <h2>Articles</h2>
           {topic && <h3>~{topic}~</h3>}
@@ -61,17 +65,28 @@ class Articles extends Component {
       </div>
     );
   }
-  handleFilterSubmit = (e, sortBy, limit, sortOrder) => {
+  handleFilterSubmit = (e) => {
+    console.log(e);
     e.preventDefault();
-    const newQueries = {sortBy, limit, sortOrder}
+    const {sortBy, limit, sortOrder} = this.state.queries;
     const { topic } = this.props;
     const queryString = assembleQueryString(sortBy, limit, sortOrder);
     fetchArticles(topic, queryString)
       .then((articles) => {
         this.setState({
           articles,
-          queries: newQueries,
         })
+      })
+     }
+    handleFilterChange = (e) => {
+      const { name, value } = e.target;
+      this.setState(prevState => {
+        const { queries } = prevState;
+        const newQueries = {...queries, [name]: value}
+        return {
+          queries: newQueries,
+        }
+
       })
   }
 }
