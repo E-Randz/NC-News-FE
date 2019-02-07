@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import { addNewTopic } from '../api';
-import { Redirect } from '@reach/router';
+import { navigate } from '@reach/router';
+import '../styles/CreateTopic.css';
 
 class CreateTopic extends Component {
   state = { 
     slug: '',
     description: '',
-    redirect: null,
   }
   render() { 
-    const { slug, description, redirect } = this.state;
+    const { slug, description } = this.state;
     return ( 
       <>
       <div className='Create-topic'>
         <h2>Create Topic</h2>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type="text" name='slug' value={slug} placeholder='enter topic name'/>
-          <input onChange={this.handleChange} type="text" name='description' value={description} placeholder='enter topic description'/>
-          <Button buttonPurpose='Create Topic' />
+          <textarea onChange={this.handleChange} type="text" name='description' value={description} placeholder='enter topic description'></textarea>
+          <Button className='Submit' buttonPurpose='Submit' />
         </form>
       </div>
-      {redirect && <Redirect noThrow to={redirect}/>}
       </>
     );
   }
@@ -30,9 +29,7 @@ class CreateTopic extends Component {
     const { slug, description } = this.state;
     addNewTopic(slug, description)
       .then(() => {
-        this.setState({
-          redirect: '/topics',
-        })
+        navigate('/topics');
       })
       .catch(console.log);
   }

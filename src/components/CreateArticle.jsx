@@ -42,7 +42,7 @@ class CreateArticle extends Component {
           <input value={title} id='title' placeholder='enter title' onChange={this.handleChange} type="text" name='title'/>
           <label htmlFor='body'>Body:</label>
           <textarea id='body' value={body} onChange={this.handleChange} name="body" cols="30" rows="10"></textarea>
-          <Button buttonPurpose='Submit'/>
+          <Button className='Submit' buttonPurpose='Submit'/>
         </form>
       </div>
       }

@@ -38,6 +38,7 @@ class Articles extends Component {
         })
     }
   }
+  
   render() { 
     const { articles, queries, toggleFilter } = this.state
     const { topic } = this.props;
@@ -72,8 +73,8 @@ class Articles extends Component {
       </div>
     );
   }
+
   handleFilterSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
     const {sortBy, limit, sortOrder} = this.state.queries;
     const { topic } = this.props;
@@ -84,7 +85,7 @@ class Articles extends Component {
           articles,
         })
       })
-     }
+  }
     handleFilterChange = (e) => {
       const { name, value } = e.target;
       this.setState(prevState => {

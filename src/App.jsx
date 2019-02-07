@@ -53,9 +53,9 @@ class App extends Component {
   }
   toggleDashboard = (e) => {
     const { dashboardOpen } = this.state;
-    const { tagName } = e.target;
+    const targetClasses = [...e.target.classList];
     if (!dashboardOpen) {
-      if(tagName === 'path' || tagName === 'svg'){
+      if(targetClasses.includes('fa-pen-square') || targetClasses.includes('Dashboard-open')){
         this.setState({
           dashboardOpen: true,
         })

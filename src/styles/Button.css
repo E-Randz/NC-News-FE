@@ -2,7 +2,7 @@ Button:disabled {
   color: grey;
 }
 
-.New-Comment-Button, .Show-comments {
+.New-Comment-Button, .Show-comments, .Submit {
   display: inline-block;
   background: var(--blue);
   border-radius: 1em;
