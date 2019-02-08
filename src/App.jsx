@@ -18,9 +18,9 @@ import PageNotFound from './components/PageNotFound';
 class App extends Component {
   state = {
     user: {
-      username: "tickle122",
-      name: "Tom Tickle",
-      avatar_url: "https://image.flaticon.com/icons/svg/145/145842.svg"
+      // username: "tickle122",
+      // name: "Tom Tickle",
+      // avatar_url: "https://image.flaticon.com/icons/svg/145/145842.svg"
     },
     dashboardOpen: false,
   }
