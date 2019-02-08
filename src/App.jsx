@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header user={user}/>
-        <Auth user={user} setUser={this.setUser} >
+        <Auth setUser={this.setUser} >
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
             <Articles className='Articles' title='Articles' path='/articles' />
