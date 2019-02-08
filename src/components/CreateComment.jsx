@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button';
-
+import'../styles/CreateComment.css';
 class CreateComment extends Component {
   state = { 
     body: '',

@@ -18,8 +18,8 @@ class Articles extends Component {
   }
 
   componentDidMount() {
-    const { topic } = this.props;
-    fetchArticles(topic)
+    const { topic, queries } = this.props;
+    fetchArticles(topic, queries)
       .then((articles) => {
         this.setState({
           articles

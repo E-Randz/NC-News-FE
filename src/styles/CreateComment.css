@@ -1,0 +1,14 @@
+.Create-comment {
+  border-radius: 2em;
+  background: var(--lightpanel);
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 5px 5px 5px var(--grey);
+}
+.Create-comment form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  grid-gap: 1em;
+}

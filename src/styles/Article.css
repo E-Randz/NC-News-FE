@@ -1,5 +1,6 @@
 .Article {
   margin: 0 1em 1em 1em;
+  grid-column: 2 / 5;
 }
 .Article-body {
   background: var(--lightpanel);

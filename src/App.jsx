@@ -36,7 +36,7 @@ class App extends Component {
             <CreateArticle className='Create-article' user={user} path='/create-article'/>
             <Topics path='/topics'/>
             <CreateTopic className='Create-topic' path='/create-topic'/>
-            <Articles path='/topics/:topic/articles' />
+            <Articles className='Articles' title='Articles' path='/topics/:topic/articles' />
             <Users path='/users' />
             <User path='/users/:username' />
             <Profile path='/profile'/>

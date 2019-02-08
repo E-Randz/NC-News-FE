@@ -7,10 +7,11 @@ import CreateTopic from './CreateTopic';
 
 const Home = (props) => {
   const { user } = props
+  const queries = '?sort_by=votes&order=desc&limit=5';
   return ( 
     <>
       <UserItem className="Home-user-item" user={user} className='Home-user-item'/>
-      <Articles title='Top Articles' className='Home-articles'/>  
+      <Articles queries={queries} title='Top Articles' className='Home-articles'/>  
       <CreateArticle className='Home-create-article' />
       <CreateTopic className='Home-create-topic' /> 
     </>    

@@ -1,10 +1,13 @@
 .Create-article, .Home-create-article {
-  display: none;
   border-radius: 2em;
   background: var(--lightpanel);
   margin: 1em;
   padding: 1em;
   box-shadow: 5px 5px 5px var(--grey);
+}
+
+.Home-create-article {
+  display: none;
 }
 
 .Create-article form, .Home-create-article form {

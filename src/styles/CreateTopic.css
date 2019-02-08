@@ -1,12 +1,15 @@
 
 .Create-topic, .Home-create-topic {
-  display: none;
   border-radius: 2em;
   background: var(--lightpanel);
   margin: 1em;
   padding: 1em;
   box-shadow: 5px 5px 5px var(--grey);
   grid-column: 2 / 5
+}
+
+.Home-create-topic {
+  display: none;
 }
 
 .Create-topic form, .Home-create-topic form {
