@@ -21,11 +21,10 @@ class CreateArticle extends Component {
       })
   }
   render() { 
-    const { topicOptions, redirect, title, body } = this.state;
+    const { topicOptions, title, body } = this.state;
     const { className } = this.props;
     return (
       <>
-      {!redirect &&
       <div className={className}>
       <h2>Create Article</h2>
         <form onSubmit={this.handleSubmit}>
@@ -46,7 +45,6 @@ class CreateArticle extends Component {
           <Button className='Submit' buttonPurpose='Submit'/>
         </form>
       </div>
-      }
       </>
     );
   }

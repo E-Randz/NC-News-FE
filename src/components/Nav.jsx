@@ -5,7 +5,7 @@ import { Link } from '@reach/router'
 class Nav extends Component {
   state = {  }
   render() { 
-    const { user } = this.props;
+    // const { user } = this.props;
     return ( 
       <div className='Header-nav'>
         <ul className='Nav-list'>

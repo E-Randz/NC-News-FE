@@ -12,7 +12,7 @@ const Home = (props) => {
     <>
       <UserItem className="Home-user-item" user={user}/>
       <Articles queries={queries} title='Top Articles' className='Home-articles'/>  
-      <CreateArticle className='Home-create-article' />
+      <CreateArticle user={user} className='Home-create-article' />
       <CreateTopic className='Home-create-topic' /> 
     </>    
   );

@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Header from './components/Header'
 import Topics from './components/Topics';
 import Users from './components/Users';
-import User from './components/User';
+// import User from './components/User';
 import Profile from './components/Profile';
 import Articles from './components/Articles';
 import Article from './components/Article';
