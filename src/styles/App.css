@@ -31,7 +31,7 @@ body {
 @media screen and (min-width: 850px) {
   .App-page {
     display: grid;
-    grid-template-columns: 2em repeat(3, minmax(auto, 20em)) 1fr;
+    grid-template-columns: 1fr repeat(3, minmax(auto, 20em)) 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
 }

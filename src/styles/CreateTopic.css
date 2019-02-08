@@ -17,3 +17,10 @@
 #topic {
   background: #fff;
 }
+@media screen and (min-width: 850px) {
+  .Home-create-topic {
+    display: block;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+}
