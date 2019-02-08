@@ -17,11 +17,7 @@ import PageNotFound from './components/PageNotFound';
 
 class App extends Component {
   state = {
-    user: {
-      // username: "tickle122",
-      // name: "Tom Tickle",
-      // avatar_url: "https://image.flaticon.com/icons/svg/145/145842.svg"
-    },
+    user: null,
     dashboardOpen: false,
   }
   render() {
@@ -29,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header user={user}/>
-        <Auth setUser={this.setUser} >
+        <Auth user={user} setUser={this.setUser} >
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
             <Articles className='Articles' title='Articles' path='/articles' />

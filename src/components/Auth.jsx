@@ -16,6 +16,7 @@ class Auth extends Component {
         <h2>Please Log In</h2>
         <form onSubmit={this.handleSubmit}>
           <input value={username} name='username' placeholder='username here' onChange={this.handleChange} type="text"/>
+          <button>Submit</button>
         </form>
         {userErr && <p>Invalid Username</p>}
       </div>
