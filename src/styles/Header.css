@@ -1,6 +1,6 @@
 .App-header {
   display: grid;
-  grid-template-columns: 2em repeat(3, minmax(auto, 20em)) 1fr;
+  grid-template-columns: 1fr repeat(3, minmax(auto, 20em)) 1fr;
   background: var(--petrol);
   border-bottom: 1em solid var(--red);
 }
