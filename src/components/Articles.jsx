@@ -5,6 +5,8 @@ import { Link } from '@reach/router';
 import '../styles/Articles.css';
 import { assembleQueryString } from '../utils';
 import Button from './Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faComment, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 
 class Articles extends Component {
   state = { 
@@ -61,8 +63,8 @@ class Articles extends Component {
                   <p className="Article-author">{author}</p>
                   <p className="Article-topic">~{topic}~</p>
                   <div className="Article-meta">
-                    <p className="Article-commentCount">Comments: {comment_count}</p>
-                    <p className="Article-votes">Votes: {votes}</p>
+                    <p className="Article-votes"><FontAwesomeIcon icon={faThumbsUp}/>{votes}</p>
+                    <p className="Article-commentCount"><FontAwesomeIcon icon={faComment}/>{comment_count}</p>
                     <p className="Article-createdAt">{created_at}</p>
                   </div>
                 </div>

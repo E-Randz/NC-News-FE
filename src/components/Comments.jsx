@@ -47,7 +47,13 @@ class Comments extends Component {
          })}
         </>
         }
-        { commentsErr && <p>{commentsErr}</p>}
+        { commentsErr && 
+        <>
+          <p>{commentsErr}</p>
+          <Button handleClick={this.handleNewComment} className='New-Comment-Button' buttonPurpose='New Comment'/>
+          {newComment && <CreateComment handleSubmit={this.handleSubmit}/>}
+        </>
+        }
       </div>
     );
   }
@@ -78,7 +84,8 @@ class Comments extends Component {
     addNewComment(article_id, user.username, body)
       .then(({data: {comment}}) => {
         this.setState(prevState => {
-          const newComments = [...prevState.comments];
+
+          const newComments = prevState.comments ? [...prevState.comments] : [];
           newComments.unshift(comment)
           return {
             comments: newComments,

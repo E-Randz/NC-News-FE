@@ -49,6 +49,19 @@
   border-radius: 1em;
 }
 
+.Article-votes, .Article-commentCount {
+  font-size: 2em;
+}
+.Article-commentCount {
+  text-align: start;
+  margin: 0.5em
+}
+
+.Article-votes {
+  text-align: end;
+  margin: 0.5em
+}
+
 @media screen and (min-width: 850px) {
   .Articles {
     grid-column: 2 / 5;
