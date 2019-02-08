@@ -39,7 +39,7 @@ class App extends Component {
             <CreateTopic className='Create-topic' path='/create-topic'/>
             <Articles className='Articles' title='Articles' path='/topics/:topic/articles' />
             <Users path='/users' />
-            <User path='/users/:username' />
+            {/* <User path='/users/:username' /> Not in use yet need to do another join to get comments and post history */}
             <Profile path='/profile'/>
             <PageNotFound default />
           </Router>
