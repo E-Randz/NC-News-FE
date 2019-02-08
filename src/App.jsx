@@ -13,6 +13,7 @@ import Auth from './components/Auth';
 import Dashboard from './components/Dashboard';
 import CreateArticle from './components/CreateArticle';
 import CreateTopic from './components/CreateTopic';
+import PageNotFound from './components/PageNotFound';
 
 class App extends Component {
   state = {
@@ -40,6 +41,7 @@ class App extends Component {
             <Users path='/users' />
             <User path='/users/:username' />
             <Profile path='/profile'/>
+            <PageNotFound default />
           </Router>
           <Dashboard dashboardOpen={dashboardOpen} toggleDashboard={this.toggleDashboard} user={user} />
         </Auth>
