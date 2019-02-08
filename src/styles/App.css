@@ -21,6 +21,8 @@ body {
   grid-row: 3 / 4;
 }
 .App-page {
+  box-sizing: border-box;
+  padding: 1em;
   background: var(--lightgrey);
   height: 100%;
   overflow: auto;

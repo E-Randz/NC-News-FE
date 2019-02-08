@@ -11,9 +11,10 @@ class CreateTopic extends Component {
   }
   render() { 
     const { slug, description } = this.state;
+    const { className } = this.props;
     return ( 
       <>
-      <div className='Create-topic'>
+      <div className={className}>
         <h2>Create Topic</h2>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type="text" name='slug' value={slug} placeholder='enter topic name'/>

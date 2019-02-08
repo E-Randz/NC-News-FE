@@ -1,4 +1,4 @@
-.User-item {
+.User-item, .Home-user-item {
   padding: 1em;
   background: var(--lightpanel);
   border-radius: 2em;

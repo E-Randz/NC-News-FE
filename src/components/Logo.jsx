@@ -5,7 +5,7 @@ import { Link } from '@reach/router';
 const Logo = () => {
   return ( 
     <div className='Header-logo'>
-      <h1><Link to='/'>Logo</Link></h1>
+      <h1><Link to='/'>{'<NC News/>'}</Link></h1>
     </div>
    );
 }

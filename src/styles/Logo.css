@@ -1,5 +1,7 @@
 .Header-logo h1 {
   color: var(--lightgrey);
+  font-size: 1em;
+  white-space: nowrap;
 }
 
 .Header-logo a {
