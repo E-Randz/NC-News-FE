@@ -12,7 +12,7 @@ class Nav extends Component {
           <li className='Nav-item'><Link to='/articles'>Articles</Link></li>
           <li className='Nav-item'><Link to='/topics'>Topics</Link></li>
           <li className='Nav-item'><Link to='/users'>Users</Link></li>
-          <li className='Nav-item'>
+          {/* <li className='Nav-item'>
             
               <Link to='/profile'>
                 {user ? user.username : 'Login'}
@@ -20,7 +20,7 @@ class Nav extends Component {
               <span className='User-img'>
                {user && <img src={user.avatar_url} alt='user avatar'/>}
               </span>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

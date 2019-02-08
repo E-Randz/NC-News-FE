@@ -1,6 +1,6 @@
 .App-header {
   display: grid;
-  grid-template-columns: 2em minmax(auto, 25em) 2fr minmax(auto, 25em)  1fr;
+  grid-template-columns: 2em repeat(3, minmax(auto, 20em)) 1fr;
   background: var(--petrol);
   border-bottom: 1em solid var(--red);
 }
@@ -8,7 +8,7 @@
 .Header-logo {
   grid-column: 2 / 3;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

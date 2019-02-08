@@ -42,7 +42,7 @@ class Articles extends Component {
   render() { 
     const { articles, queries, toggleFilter } = this.state
     const { topic } = this.props;
-    const sortFields = ['created_at', 'title', 'topic', 'created_by']
+    const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
     return ( 
       <div className='Articles'>
         <div className='Articles-results'>
