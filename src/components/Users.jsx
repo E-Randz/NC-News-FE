@@ -26,7 +26,7 @@ class Users extends Component {
         {loadingUsers && <p>Loading Users...</p>}
         {users.map(user => {
           return (
-            <UserItem key={user.username} user={user} />
+            <UserItem className="User-item" key={user.username} user={user} />
           )
         })}
       </div>

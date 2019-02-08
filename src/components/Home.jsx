@@ -9,7 +9,7 @@ const Home = (props) => {
   const { user } = props
   return ( 
     <>
-      <UserItem user={user} className='Home-user-item'/>
+      <UserItem className="Home-user-item" user={user} className='Home-user-item'/>
       <Articles title='Top Articles' className='Home-articles'/>  
       <CreateArticle className='Home-create-article' />
       <CreateTopic className='Home-create-topic' /> 

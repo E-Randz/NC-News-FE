@@ -5,8 +5,9 @@ import '../styles/UserItem.css';
 
 const UserItem = (props) => {
   const { username, name, avatar_url } = props.user;
+  const { className } = props;
   return ( 
-    <div className="User-item">
+    <div className={className}>
       <div >
         <img src={avatar_url} alt={username} className="User-avatar"/>
       </div>
