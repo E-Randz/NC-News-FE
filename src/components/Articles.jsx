@@ -41,12 +41,12 @@ class Articles extends Component {
   
   render() { 
     const { articles, queries, toggleFilter } = this.state
-    const { topic, className } = this.props;
+    const { topic, className, title } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
     return ( 
       <div className={className}>
         <div className='Articles-results'>
-          <h1>Articles</h1>
+          <h1>{title}</h1>
           {topic && <h3>~{topic}~</h3>}
           <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
           {toggleFilter !== 'Filter' && <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />}

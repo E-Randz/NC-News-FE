@@ -31,7 +31,7 @@ class App extends Component {
         <Auth user={user} setUser={this.setUser} >
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
-            <Articles className='Articles' path='/articles' />
+            <Articles className='Articles' title='Articles' path='/articles' />
             <Article user={user} path='/articles/:article_id' />
             <CreateArticle className='Create-article' user={user} path='/create-article'/>
             <Topics path='/topics'/>

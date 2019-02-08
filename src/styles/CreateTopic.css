@@ -1,12 +1,13 @@
 
-.Create-topic {
+.Create-topic, .Home-create-topic {
+  display: none;
   border-radius: 2em;
   background: var(--lightpanel);
   margin: 1em;
   padding: 1em;
 }
 
-.Create-topic form {
+.Create-topic form, .Home-create-topic form {
   display: grid;
   justify-content: center;
   align-items: center;

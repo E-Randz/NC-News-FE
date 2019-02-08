@@ -1,11 +1,12 @@
-.Create-article {
+.Create-article, .Home-create-article {
+  display: none;
   border-radius: 2em;
   background: var(--lightpanel);
   margin: 1em;
   padding: 1em;
 }
 
-.Create-article form {
+.Create-article form, .Home-create-article form {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -16,3 +17,4 @@
 #topic {
   background: #fff;
 }
+
