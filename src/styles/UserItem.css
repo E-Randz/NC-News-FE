@@ -8,7 +8,7 @@
   width: 10em;
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 600px) {
   .Home-user-item {
     grid-column: 2 / 3;
     grid-row: 1 / 2;

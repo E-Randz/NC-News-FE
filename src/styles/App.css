@@ -11,7 +11,7 @@ body {
   margin: 0;
 }
 .App {
-  height: calc(100vh - 56px);
+  height: calc(100vh);
   max-width: 100%;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -29,11 +29,12 @@ body {
   overflow: auto;
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 600px) {
   .App-page {
     display: grid;
     grid-template-columns: 1fr repeat(3, minmax(auto, 20em)) 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
 }
+
 

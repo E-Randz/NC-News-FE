@@ -62,7 +62,7 @@
   margin: 0.5em
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 600px) {
   .Articles {
     grid-column: 2 / 5;
   }

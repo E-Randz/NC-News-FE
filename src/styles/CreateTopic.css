@@ -22,7 +22,7 @@
 #topic {
   background: #fff;
 }
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 600px) {
   .Home-create-topic {
     display: block;
     grid-column: 2 / 3;
