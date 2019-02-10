@@ -7,6 +7,7 @@ class User extends Component {
   componentDidMount() {
     console.log(this.props);
   }
+  
   render() { 
     return ( 
       <div>Not in use yet. Will be filled with profile info and previous post and comments.

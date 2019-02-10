@@ -12,6 +12,7 @@ class Comments extends Component {
     commentsErr: null,
     newComment: false,
   }
+  
   componentDidMount() {
     const { article_id } = this.props;
     fetchComments(article_id)
@@ -28,6 +29,7 @@ class Comments extends Component {
       })
     });
   }
+
   render() { 
      const { article_id, user } = this.props
      const { comments, loadingComments, commentsErr, newComment } = this.state;

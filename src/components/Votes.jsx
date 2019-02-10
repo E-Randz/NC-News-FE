@@ -11,12 +11,14 @@ class Votes extends Component {
     voteChange: 0,
     votes: null,
   }
+
   componentDidMount() {
     const { votes } = this.props;
     this.setState({
       votes,
     })
   }
+
   render() { 
     const { votes, voteChange } = this.state;
     return ( 
@@ -27,6 +29,7 @@ class Votes extends Component {
       </p>
     );
   }
+  
   handleVoteClick = (voteChange) => {
     const { item, comment_article_id } = this.props;
     changeVoteCount(voteChange, item, comment_article_id)

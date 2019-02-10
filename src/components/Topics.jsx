@@ -16,6 +16,7 @@ class Topics extends Component {
         })
       })
   }
+  
   render() { 
     const { topics } = this.state;
     return ( 

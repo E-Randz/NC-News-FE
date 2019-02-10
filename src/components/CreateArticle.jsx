@@ -11,6 +11,7 @@ class CreateArticle extends Component {
       topic: 'coding',
       topicOptions: null,
   }
+
   componentDidMount() {
     fetchTopics()
       .then(topics => {
@@ -20,6 +21,7 @@ class CreateArticle extends Component {
         })
       })
   }
+
   render() { 
     const { topicOptions, title, body, topic } = this.state;
     const { className } = this.props;
@@ -48,6 +50,7 @@ class CreateArticle extends Component {
       </>
     );
   }
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const { title, body, topic } = this.state;

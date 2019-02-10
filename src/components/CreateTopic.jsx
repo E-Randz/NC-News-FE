@@ -9,6 +9,7 @@ class CreateTopic extends Component {
     slug: '',
     description: '',
   }
+
   render() { 
     const { slug, description } = this.state;
     const { className } = this.props;
@@ -25,6 +26,7 @@ class CreateTopic extends Component {
       </>
     );
   }
+  
   handleSubmit = (e) => {
     e.preventDefault()
     const { slug, description } = this.state;

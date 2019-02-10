@@ -18,6 +18,7 @@ class Users extends Component {
         })
       })
   }
+  
   render() { 
     const { loadingUsers, users} = this.state;
     return ( 

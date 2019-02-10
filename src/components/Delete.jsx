@@ -26,16 +26,19 @@ class Delete extends Component {
 
     );
   }
+
   handleDeleteCheck = () => {
     this.setState({
       deleteShowing: false,
     })
   }
+
   handleDeleteCancel = () => {
     this.setState({
       deleteShowing: true,
     })
   }
+  
   handleDelete = (item, comment_article_id) => {
     const { handleDelete } = this.props;
     const id = comment_article_id ? item.comment_id : item.article_id;

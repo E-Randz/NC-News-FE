@@ -5,6 +5,7 @@ class CreateComment extends Component {
   state = { 
     body: '',
   }
+
   render() { 
     const { body } = this.state;
     const { handleSubmit } = this.props;
@@ -17,6 +18,7 @@ class CreateComment extends Component {
       </div>
     );
   }
+  
   handleChange = (e) => {
     const { value, name } = e.target;
     this.setState({
