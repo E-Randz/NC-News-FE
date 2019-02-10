@@ -11,11 +11,11 @@ class Article extends Component {
   state = { 
    article: null,
    comments: false,
-   commentsButton: true,
    commentButtonPurpose: 'Show Comments',
    deleteShowing: false,
    deleteCheck: false,
   }
+
   componentDidMount() {
     if (this.props.location.state.article) {
       const { article } = this.props.location.state;
@@ -34,7 +34,7 @@ class Article extends Component {
   }
   render() { 
     const { user } = this.props;
-    const { article, commentsButton, comments, commentButtonPurpose, deleteShowing } = this.state;
+    const { article, comments, commentButtonPurpose, deleteShowing } = this.state;
     let date;
 
     if (article) {
@@ -50,27 +50,21 @@ class Article extends Component {
             <p>{article.body}</p>
           </div>
           <div className='Article-comments'>
-            {commentsButton && <Button className='Show-comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />}
+            <Button className='Show-comments' handleClick={this.handleClick} buttonPurpose={commentButtonPurpose} />
             {comments && <Comments user={user} changeCommentCount={this.changeCommentCount} article_id={this.props.article_id} />
             }
           </div>
         </div>
     );
   }
+
   handleClick = (e) => {
     const {innerText} = e.target;
-    if (innerText === 'Show Comments') {
-      this.setState({
-        comments: true,
-        commentButtonPurpose: 'Hide Comments'
-      })
-    } else {
-      this.setState({
-        comments: false,
-        commentButtonPurpose: 'Show Comments'
-      })
-    }
+    const newState = innerText === 'Show Comments' ? {comments: true, commentButtonPurpose: 'Hide Comments'}
+                                                   : {comments: false, commentButtonPurpose: 'Show Comments'};
+    this.setState(newState);
   }
+
   changeCommentCount = (change) => {
     this.setState(prevState => {
       const { article } = prevState;
