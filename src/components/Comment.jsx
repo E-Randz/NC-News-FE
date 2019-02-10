@@ -19,8 +19,11 @@ class Comment extends Component {
 
 
   render() { 
-    const { comment_article_id, handleDelete } = this.props;
-    const { comment, comment: {author, body, votes, created_at} } = this.props;
+    const {  comment_article_id, 
+             handleDelete, 
+             comment, 
+             comment: {author, body, votes, created_at},
+          } = this.props;
     const { deleteShowing } = this.state;
     const date = timestampToDate(created_at)
 
