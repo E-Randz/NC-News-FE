@@ -1,7 +1,6 @@
 .Create-article, .Home-create-article {
   border-radius: 2em;
   background: var(--lightpanel);
-  margin: 1em;
   padding: 1em;
   box-shadow: 5px 5px 5px var(--grey);
 }

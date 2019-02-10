@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3em 3em 3em repeat(7, 1fr);
+  grid-gap: 1em;
 }
 .Home-title {
   grid-column: 1 / 3;

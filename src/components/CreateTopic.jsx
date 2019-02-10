@@ -18,7 +18,7 @@ class CreateTopic extends Component {
         <h2>Create Topic</h2>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type="text" name='slug' value={slug} placeholder='enter topic name'/>
-          <textarea onChange={this.handleChange} type="text" cols='50' name='description' value={description} placeholder='enter topic description'></textarea>
+          <textarea onChange={this.handleChange} type="text" cols='50' rows='2' name='description' value={description} placeholder='enter topic description'></textarea>
           <Button className='Submit' buttonPurpose='Submit' />
         </form>
       </div>
