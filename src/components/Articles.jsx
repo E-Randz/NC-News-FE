@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import SortAndFilter from './SortAndFilter';
 import { fetchArticles } from '../api';
-import { Link } from '@reach/router';
 import '../styles/Articles.css';
 import { assembleQueryString } from '../utils';
 import Button from './Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faComment, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import ArticleCard from './ArticleCard';
 
 class Articles extends Component {
   state = { 
@@ -54,21 +52,8 @@ class Articles extends Component {
           {toggleFilter !== 'Filter' && <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />}
           <div className='Articles-list'>
             {articles.map(article => {
-              const {article_id, title, author, topic, comment_count, votes } = article;
-              let timestamp = article.created_at.toString();
-              const created_at = new Date(timestamp).toString().replace(/ GMT.*/, '');
-              return (
-                <div key={article_id} className="Article-item">
-                  <h2 className="Article-title"><Link to={`/articles/${article_id}`}>{title}</Link></h2>
-                  <p className="Article-author">{author}</p>
-                  <p className="Article-topic">~{topic}~</p>
-                  <div className="Article-meta">
-                    <p className="Article-votes"><FontAwesomeIcon icon={faThumbsUp}/>{votes}</p>
-                    <p className="Article-commentCount"><FontAwesomeIcon icon={faComment}/>{comment_count}</p>
-                    <p className="Article-createdAt">{created_at}</p>
-                  </div>
-                </div>
-              )
+              const { article_id } = article;
+              return <ArticleCard key={article_id} article={article} />
             })}
           </div>
         </div>
