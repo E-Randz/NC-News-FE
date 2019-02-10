@@ -9,10 +9,8 @@ class Delete extends Component {
     redirect: null,
   }
 
-
   render() { 
-    const { text, itemType, item, comment_article_id  } = this.props;
-
+    const { DeleteProps: { text, itemType, item, comment_article_id } } = this.props;
     const { deleteShowing, redirect } = this.state;
     return ( 
       <div className='Delete'>

@@ -22,8 +22,8 @@ class Dashboard extends Component {
       <div className='Dashboard'>
         {user && dashboardOpen &&
         <div className='Dashboard-buttons'>
-        <Link to='/create-article'>Create Article</Link>
-        <Link to='/create-topic'>Create Topic</Link>
+          <Link to='/create-article'>Create Article</Link>
+          <Link to='/create-topic'>Create Topic</Link>
         </div>
         }
         <button {...buttonProps} ><FontAwesomeIcon icon={icon} className='dashboard-icon' /></button>

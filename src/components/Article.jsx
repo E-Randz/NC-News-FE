@@ -38,6 +38,11 @@ class Article extends Component {
     const { user } = this.props;
     const { article, comments, commentButtonPurpose, deleteShowing } = this.state;
     let date;
+    const DeleteProps = {
+      itemType: 'article',
+      item: article,
+      text: 'Delete Article',
+    }
 
     if (article) {
      date = timestampToDate(article.created_at);
@@ -47,7 +52,7 @@ class Article extends Component {
       article &&
         <div className="Article">
           <ArticleInfo article={article} date={date} />
-          {deleteShowing && <Delete itemType='article' item={article} text='Delete Article' />}
+          {deleteShowing && <Delete DeleteProps={DeleteProps} />}
           <div className='Article-body'>
             <p>{article.body}</p>
           </div>

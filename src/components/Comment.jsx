@@ -8,7 +8,7 @@ class Comment extends Component {
   state = { 
     deleteShowing: false
   }
-  
+
   componentDidMount() {
     const { user } = this.props;
     const { author } = this.props.comment;
@@ -21,9 +21,17 @@ class Comment extends Component {
 
   render() { 
     const { comment_article_id, handleDelete } = this.props;
-    const { author, body, votes, created_at } = this.props.comment;
+    const { comment, comment: {author, body, votes, created_at} } = this.props;
     const { deleteShowing } = this.state;
     const date = timestampToDate(created_at)
+
+    const DeleteProps = {
+      handleDelete: {handleDelete},
+      itemType: 'comment',
+      item: comment, 
+      comment_article_id: {comment_article_id}, 
+      text: 'Delete Comment', 
+    }
     return ( 
       <div className='Comment'>
         <h3 className="Comment-author">{author}</h3>
@@ -32,14 +40,7 @@ class Comment extends Component {
           <Votes comment_article_id={comment_article_id} votes={votes} item={this.props.comment} />
           <p className="Comment-createdAt">{date}</p>
         </div>
-
-        {deleteShowing && <Delete 
-          handleDelete={handleDelete}
-          itemType='comment' 
-          item={this.props.comment} 
-          comment_article_id={comment_article_id} 
-          text='Delete Comment' 
-        />}
+        {deleteShowing && <Delete DeleteProps={DeleteProps} />}
     </div> 
     );
   }
