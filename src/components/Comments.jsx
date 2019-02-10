@@ -44,7 +44,7 @@ class Comments extends Component {
          {newComment && <CreateComment handleSubmit={this.handleSubmit}/>}
          {comments.map(comment => {
           return (
-            <Comment user={user} handleDelete={this.handleDelete} comment_article_id={article_id} key={comment.comment_id} comment={comment}/>
+            <Comment user={user} removeComment={this.removeComment} comment_article_id={article_id} key={comment.comment_id} comment={comment}/>
           )
          })}
         </>
@@ -59,7 +59,7 @@ class Comments extends Component {
       </div>
     );
   }
-  handleDelete = (comment_id) => {
+  removeComment = (comment_id) => {
     const {changeCommentCount} = this.props
     this.setState(prevState => {
       const { comments } = prevState;

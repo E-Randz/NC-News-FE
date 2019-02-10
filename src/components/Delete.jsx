@@ -11,6 +11,7 @@ class Delete extends Component {
 
   render() { 
     const { DeleteProps: { text, itemType, item, comment_article_id } } = this.props;
+    console.log(comment_article_id);
     const { deleteShowing, redirect } = this.state;
     return ( 
       <div className='Delete'>
@@ -40,13 +41,12 @@ class Delete extends Component {
   }
   
   handleDelete = (item, comment_article_id) => {
-    const { handleDelete } = this.props;
+    const { DeleteProps: { removeComment } } = this.props;
     const id = comment_article_id ? item.comment_id : item.article_id;
-
     if (comment_article_id) {
       deleteItem(comment_article_id, id)
         .then(() => {
-          handleDelete(id);
+          removeComment(id);
         })
         .catch(console.log);
     } else {

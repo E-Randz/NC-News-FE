@@ -20,7 +20,7 @@ class Comment extends Component {
 
   render() { 
     const {  comment_article_id, 
-             handleDelete, 
+             removeComment,
              comment, 
              comment: {author, body, votes, created_at},
           } = this.props;
@@ -28,10 +28,10 @@ class Comment extends Component {
     const date = timestampToDate(created_at)
 
     const DeleteProps = {
-      handleDelete: {handleDelete},
+      removeComment,
       itemType: 'comment',
       item: comment, 
-      comment_article_id: {comment_article_id}, 
+      comment_article_id: comment_article_id, 
       text: 'Delete Comment', 
     }
 
