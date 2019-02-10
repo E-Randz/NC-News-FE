@@ -1,5 +1,5 @@
 export const assembleQueryString = (sortBy, limit, sortOrder) => {
-  const qNames = ['sort_by', 'limit', 'sort_order'];
+  const qNames = ['sort_by', 'limit', 'order'];
   const qValues = [sortBy, limit, sortOrder];
 
   const queries = qNames.reduce((acc, curr, i) => {

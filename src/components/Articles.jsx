@@ -10,9 +10,9 @@ class Articles extends Component {
   state = { 
     articles: [],
     queries: {
-      sortBy: '',
-      limit: '', 
-      sortOrder: '',
+      sortBy: 'created_at',
+      limit: 10, 
+      sortOrder: 'desc',
     },
     toggleFilter: 'Filter',
   }
@@ -66,13 +66,16 @@ class Articles extends Component {
     const {sortBy, limit, sortOrder} = this.state.queries;
     const { topic } = this.props;
     const queryString = assembleQueryString(sortBy, limit, sortOrder);
+    console.log(queryString)
     fetchArticles(topic, queryString)
       .then((articles) => {
+        console.log(articles);
         this.setState({
           articles,
         })
       })
   }
+
     handleFilterChange = (e) => {
       const { name, value } = e.target;
       this.setState(prevState => {
@@ -85,7 +88,6 @@ class Articles extends Component {
       })
   }
   toggleFilter = (e) => {
-    console.log(e.target.className);
     const { innerText } = e.target;
     if (innerText === 'Filter') {
       this.setState({
