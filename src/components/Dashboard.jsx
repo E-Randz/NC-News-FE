@@ -6,22 +6,18 @@ import { Link } from '@reach/router';
 
 class Dashboard extends Component {
   state = { 
-    icon: faPenSquare,
     dashboardOpen: false,
   }
-  componentDidUpdate(prevProps, _){
-    const { dashboardOpen } = this.props;
-    if (dashboardOpen !== prevProps.dashboardOpen){
-      const icon = dashboardOpen ? faWindowClose : faPenSquare;
-      this.setState({
-        icon,
-      })
-    }
-  }
+
   render() { 
     const { user } = this.props;
-    const { icon, dashboardOpen } = this.state;
-
+    const { dashboardOpen } = this.state;
+    const icon = dashboardOpen ? faWindowClose : faPenSquare;
+    const buttonProps = {
+      onClick: this.toggleDashboard,
+      className: 'Dashboard-open',
+      'aria-label': 'Open Dashboard'
+    }
     return ( 
       <div className='Dashboard'>
         {user && dashboardOpen &&
@@ -30,7 +26,7 @@ class Dashboard extends Component {
         <Link to='/create-topic'>Create Topic</Link>
         </div>
         }
-        <button onClick={this.toggleDashboard} className='Dashboard-open' aria-label="Open Dashboard" ><FontAwesomeIcon icon={icon} className='dashboard-icon' /></button>
+        <button {...buttonProps} ><FontAwesomeIcon icon={icon} className='dashboard-icon' /></button>
       </div>
      );
   }
