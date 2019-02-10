@@ -43,13 +43,20 @@ class Articles extends Component {
     const { articles, queries, toggleFilter } = this.state
     const { topic, className, title } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
+
+    const SortProps = {
+      queries: queries,
+      handleFilterSubmit: this.handleFilterSubmit,
+      handleFilterChange: this.handleFilterChange,
+      sortFields: sortFields,
+    }
     return ( 
       <div className={className}>
         <div className='Articles-results'>
           <h1>{title}</h1>
           {topic && <h3>~{topic}~</h3>}
           <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
-          {toggleFilter !== 'Filter' && <SortAndFilter queries={queries} handleFilterSubmit={this.handleFilterSubmit} handleFilterChange={this.handleFilterChange} sortFields={sortFields} />}
+          {toggleFilter !== 'Filter' && <SortAndFilter SortProps={SortProps} />}
           <div className='Articles-list'>
             {articles.map(article => {
               const { article_id } = article;
@@ -63,42 +70,33 @@ class Articles extends Component {
 
   handleFilterSubmit = (e) => {
     e.preventDefault();
-    const {sortBy, limit, sortOrder} = this.state.queries;
+    const { queries: { sortBy, limit, sortOrder } } = this.state;
     const { topic } = this.props;
     const queryString = assembleQueryString(sortBy, limit, sortOrder);
-    console.log(queryString)
     fetchArticles(topic, queryString)
       .then((articles) => {
-        console.log(articles);
         this.setState({
           articles,
         })
       })
   }
 
-    handleFilterChange = (e) => {
-      const { name, value } = e.target;
-      this.setState(prevState => {
-        const { queries } = prevState;
-        const newQueries = {...queries, [name]: value}
-        return {
-          queries: newQueries,
-        }
-
-      })
+  handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => {
+      const newQueries = {...prevState.queries, [name]: value}
+      return {
+        queries: newQueries,
+      }
+    })
   }
+
   toggleFilter = (e) => {
     const { innerText } = e.target;
-    if (innerText === 'Filter') {
-      this.setState({
-        toggleFilter: 'Hide Filter',
-      })
-    } else {
-      this.setState({
-        toggleFilter: 'Filter',
-      })
-    }
-
+    const toggleFilter = innerText === 'Filter' ? 'Hide Filter' : 'Filter';
+    this.setState({
+      toggleFilter,
+    })
   }
 }
 

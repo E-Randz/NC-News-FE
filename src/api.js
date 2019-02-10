@@ -16,17 +16,13 @@ export const fetchOneArticle = async (article_id) => {
 
 export const fetchComments = async (article_id) => {
   const url = `${BASE_URL}/articles/${article_id}/comments`;
-    const { data: { comments } } = await axios.get(url)
-    return comments;
+  const { data: { comments } } = await axios.get(url)
+  return comments;
 }
 export const fetchTopics = async (article_id) => {
   const url = `${BASE_URL}/topics`;
-  try {
-    const { data: { topics } } = await axios.get(url)
-    return topics;
-  } catch(err) {
-    return err;
-  }
+  const { data: { topics } } = await axios.get(url)
+  return topics;
 }
 
 export const fetchUsers = async () => {
@@ -63,7 +59,8 @@ export const addNewTopic = async (slug, description) => {
 }
 
 export const changeVoteCount = (voteChange, item, commentArticleId) => {
-  const url = commentArticleId ? `${BASE_URL}/articles/${commentArticleId}/comments/${item.comment_id}` : `${BASE_URL}/articles/${item.article_id}`;
+  const url = commentArticleId ? `${BASE_URL}/articles/${commentArticleId}/comments/${item.comment_id}`
+                               : `${BASE_URL}/articles/${item.article_id}`;
   const patchBody = { inc_votes: voteChange };
   return axios.patch(url, patchBody)
 }
