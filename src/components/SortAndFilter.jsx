@@ -2,8 +2,8 @@ import React from 'react';
 import Button from './Button';
 import '../styles/SortAndFilter.css';
 
-const SortAndFilter = ({ SortProps }) => {
-  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder } = SortProps;
+const SortAndFilter = ({ FilterProps }) => {
+  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder } = FilterProps;
 
   return ( 
     <div className='Sort-Filter'>

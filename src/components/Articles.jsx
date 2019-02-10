@@ -44,7 +44,7 @@ class Articles extends Component {
     const { topic, className, title } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
 
-    const SortProps = {
+    const FilterProps = {
       queries: queries,
       handleFilterSubmit: this.handleFilterSubmit,
       handleFilterChange: this.handleFilterChange,
@@ -56,7 +56,7 @@ class Articles extends Component {
           <h1>{title}</h1>
           {topic && <h3>~{topic}~</h3>}
           <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
-          {toggleFilter !== 'Filter' && <SortAndFilter SortProps={SortProps} />}
+          {toggleFilter !== 'Filter' && <SortAndFilter FilterProps={FilterProps} />}
           <div className='Articles-list'>
             {articles.map(article => {
               const { article_id } = article;
