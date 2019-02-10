@@ -6,6 +6,7 @@ import Delete from './Delete';
 import ArticleInfo from './ArticleInfo';
 import '../styles/Article.css';
 import { timestampToDate } from '../utils';
+import { navigate } from '@reach/router';
 
 class Article extends Component {
   state = { 
@@ -17,21 +18,31 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    const { article_id, user } = this.props;
+    const { article_id } = this.props;
     // If new article just been posted, use the article object that is sent back
-    if (this.props.location.state.article) {
-      const { article, article : {username} } = this.props.location.state;
-      const deleteShowing = user.username === username;
+    if (this.props.location.state) {
+      const { article } = this.props.location.state;
       article.comment_count = 0;
-      this.setState({article, deleteShowing});
+      article.author = article.username;
+      this.setState({ article });
     } else {
         fetchOneArticle(article_id)
           .then((article) => {
-            const { author } = article;
-            const deleteShowing = user.username === author;
-            this.setState({article, deleteShowing});
+            this.setState({article});
+          })
+          .catch(() => {
+            navigate('/404');
           })
       }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if(prevState.article !== this.state.article) {
+      const { article: { author } } = this.state;
+      const { user } = this.props;
+      const deleteShowing = user.username === author;
+      this.setState({deleteShowing})
+    }
   }
 
   render() { 
