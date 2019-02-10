@@ -11,7 +11,7 @@ class CreateComment extends Component {
     return ( 
       <div className='Create-comment'>
       <form onSubmit={(e) => handleSubmit(e, body)}>
-        <textarea onChange={this.handleChange} value={body} name="body" cols="30" rows="10"></textarea>
+        <textarea onChange={this.handleChange} value={body} name="body" cols="50" rows="10"></textarea>
         <Button buttonPurpose='Submit'/>
       </form>
       </div>
