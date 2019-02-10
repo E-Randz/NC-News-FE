@@ -10,14 +10,13 @@ class Comment extends Component {
   }
 
   componentDidMount() {
-    const { user } = this.props;
-    const { author } = this.props.comment;
-    if (user.username === author) {
-      this.setState({
-        deleteShowing: true,
-      })
-    }
+    const { user, comment: { username, author } } = this.props;
+    const deleteShowing = user.username === username || user.username === author;
+    this.setState({
+      deleteShowing,
+    })
   }
+
 
   render() { 
     const { comment_article_id, handleDelete } = this.props;
@@ -32,6 +31,7 @@ class Comment extends Component {
       comment_article_id: {comment_article_id}, 
       text: 'Delete Comment', 
     }
+
     return ( 
       <div className='Comment'>
         <h3 className="Comment-author">{author}</h3>
