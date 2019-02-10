@@ -41,3 +41,7 @@
   -webkit-box-shadow: none;
           box-shadow: none;
 }
+
+.Dashboard-icon > path {
+  pointer-events: visibleFill;
+}

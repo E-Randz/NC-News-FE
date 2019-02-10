@@ -18,10 +18,9 @@ import PageNotFound from './components/PageNotFound';
 class App extends Component {
   state = {
     user: null,
-    dashboardOpen: false,
   }
   render() {
-    const { user, dashboardOpen } = this.state;
+    const { user } = this.state;
     return (
       <div className="App">
         <Header user={user}/>
@@ -29,17 +28,17 @@ class App extends Component {
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
             <Articles className='Articles' title='Articles' path='/articles' />
+            <Articles className='Articles' title='Articles' path='/topics/:topic/articles' />
             <Article user={user} path='/articles/:article_id' />
             <CreateArticle className='Create-article' user={user} path='/create-article'/>
             <Topics path='/topics'/>
             <CreateTopic className='Create-topic' path='/create-topic'/>
-            <Articles className='Articles' title='Articles' path='/topics/:topic/articles' />
             <Users path='/users' />
             {/* <User path='/users/:username' /> Not in use yet need to do another join to get comments and post history */}
             <Profile path='/profile'/>
             <PageNotFound default />
           </Router>
-          <Dashboard dashboardOpen={dashboardOpen} toggleDashboard={this.toggleDashboard} user={user} />
+          <Dashboard user={user} />
         </Auth>
       </div>
     );
@@ -48,21 +47,6 @@ class App extends Component {
     this.setState({
       user,
     })
-  }
-  toggleDashboard = (e) => {
-    const { dashboardOpen } = this.state;
-    const targetClasses = [...e.target.classList];
-    if (!dashboardOpen) {
-      if(targetClasses.includes('fa-pen-square') || targetClasses.includes('Dashboard-open')){
-        this.setState({
-          dashboardOpen: true,
-        })
-      }
-    } else {
-      this.setState({
-        dashboardOpen: false,
-      })
-    }
   }
 }
 
