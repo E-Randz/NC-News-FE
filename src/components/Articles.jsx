@@ -5,6 +5,7 @@ import '../styles/Articles.css';
 import { assembleQueryString } from '../utils';
 import Button from './Button';
 import ArticleCard from './ArticleCard';
+import { navigate } from '@reach/router';
 
 class Articles extends Component {
   state = { 
@@ -28,7 +29,7 @@ class Articles extends Component {
         })
       })
       .catch((err) => {
-        console.dir(err);
+        navigate('/error', {state: {errCode: err.response.status}});
       })
   }
 
