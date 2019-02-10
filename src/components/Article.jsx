@@ -31,7 +31,7 @@ class Article extends Component {
             this.setState({article});
           })
           .catch((err) => {
-            navigate('/error', {state: {errCode: err.response.status}})
+            navigate('/error', {state: {errCode: err.response.status}});
           })
       }
   }

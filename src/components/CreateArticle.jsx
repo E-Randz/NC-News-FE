@@ -10,6 +10,8 @@ class CreateArticle extends Component {
       body: '',
       topic: 'coding',
       topicOptions: null,
+      errCode: null,
+      errMessage: '',
   }
 
   componentDidMount() {
@@ -20,10 +22,13 @@ class CreateArticle extends Component {
           topicOptions: topicSlug,
         })
       })
+      .catch((err) => {
+        navigate('/error', {state: {errCode: err.response.status}});
+      })
   }
 
   render() { 
-    const { topicOptions, title, body, topic } = this.state;
+    const { topicOptions, title, body, topic, errCode, errMessage } = this.state;
     const { className } = this.props;
     return (
       <>
@@ -46,6 +51,7 @@ class CreateArticle extends Component {
           <textarea id='body' value={body} onChange={this.handleChange} name="body" cols="30" rows="10"></textarea>
           <Button className='Submit' buttonPurpose='Submit'/>
         </form>
+        {errCode && <p>{errMessage}</p>}
       </div>
       </>
     );
@@ -61,17 +67,23 @@ class CreateArticle extends Component {
         const path = `/articles/${article_id}`
         navigate(path, {state: {article}})
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        const errCode = err.response.status;
+        this.setState({
+          errCode,
+          errMessage: 'Unable to submit. Please check all fields are valid',
+        })
+      });
   }
 
   handleChange = (e) => {
     const { value, name } = e.target;
     this.setState({
+      errCode: null,
+      errMessage: '',
       [name]: value,
     })
   }
 }
  
 export default CreateArticle;
-
-// username
