@@ -13,7 +13,7 @@ import Auth from './components/Auth';
 import Dashboard from './components/Dashboard';
 import CreateArticle from './components/CreateArticle';
 import CreateTopic from './components/CreateTopic';
-import PageNotFound from './components/PageNotFound';
+import HandleError from './components/HandleError';
 
 class App extends Component {
   state = {
@@ -36,7 +36,7 @@ class App extends Component {
             <Users path='/users' />
             {/* <User path='/users/:username' /> Not in use yet need to do another join to get comments and post history */}
             <Profile path='/profile'/>
-            <PageNotFound default />
+            <HandleError default />
           </Router>
           <Dashboard user={user} />
         </Auth>

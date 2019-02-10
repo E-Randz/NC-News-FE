@@ -15,6 +15,8 @@ class Articles extends Component {
       sortOrder: 'desc',
     },
     toggleFilter: 'Filter',
+    err: null,
+    errMessage: '',
   }
 
   componentDidMount() {
@@ -24,6 +26,9 @@ class Articles extends Component {
         this.setState({
           articles
         })
+      })
+      .catch((err) => {
+        console.dir(err);
       })
   }
 
@@ -40,7 +45,7 @@ class Articles extends Component {
   }
   
   render() { 
-    const { articles, queries, toggleFilter } = this.state
+    const { articles, queries, toggleFilter, err, errMessage } = this.state
     const { topic, className, title } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
 
@@ -57,12 +62,15 @@ class Articles extends Component {
           {topic && <h3>~{topic}~</h3>}
           <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
           {toggleFilter !== 'Filter' && <SortAndFilter FilterProps={FilterProps} />}
-          <div className='Articles-list'>
-            {articles.map(article => {
-              const { article_id } = article;
-              return <ArticleCard key={article_id} article={article} />
-            })}
-          </div>
+          {!err &&
+            <div className='Articles-list'>
+              {articles.map(article => {
+                const { article_id } = article;
+                return <ArticleCard key={article_id} article={article} />
+              })}
+            </div>
+          }
+          {err && <h2>{errMessage}</h2>}
         </div>
       </div>
     );
@@ -78,6 +86,9 @@ class Articles extends Component {
         this.setState({
           articles,
         })
+      })
+      .catch((err) => {
+        this.setState({err})
       })
   }
 
