@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Header from './components/Header'
 import Topics from './components/Topics';
 import Users from './components/Users';
-// import User from './components/User';
+import UserProfile from './components/UserProfile';
 import Profile from './components/Profile';
 import Articles from './components/Articles';
 import Article from './components/Article';
@@ -34,7 +34,7 @@ class App extends Component {
             <Topics path='/topics'/>
             <CreateTopic className='Create-topic' path='/create-topic'/>
             <Users path='/users' />
-            {/* <User path='/users/:username' /> Not in use yet need to do another join to get comments and post history */}
+            <UserProfile path='/users/:username' />
             <Profile path='/profile'/>
             <HandleError default />
           </Router>

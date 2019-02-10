@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { getUserByUsername, fetchUserArticles } from '../api';
 
 class User extends Component {
   state = { 
     user: null,
   }
   componentDidMount() {
+    const { username } = this.props;
+    let user;
+    getUserByUsername(username)
+      .then((user) => {
+        console.log(user);
+      })
   }
   
   render() { 
