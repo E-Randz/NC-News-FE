@@ -11,7 +11,6 @@ class Delete extends Component {
 
   render() { 
     const { DeleteProps: { text, itemType, item, comment_article_id } } = this.props;
-    console.log(comment_article_id);
     const { deleteShowing, redirect } = this.state;
     return ( 
       <div className='Delete'>
@@ -48,7 +47,6 @@ class Delete extends Component {
         .then(() => {
           removeComment(id);
         })
-        .catch(console.log);
     } else {
       deleteItem(id, null)
         .then(() => {
@@ -56,7 +54,6 @@ class Delete extends Component {
             redirect: '/articles',
           })
         })
-        .catch(console.log);
     }
 
   }

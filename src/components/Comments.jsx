@@ -95,7 +95,6 @@ class Comments extends Component {
           }
         })
       })
-      .catch(console.log)
       changeCommentCount(1)
   }
 }

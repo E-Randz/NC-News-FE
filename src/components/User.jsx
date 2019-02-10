@@ -5,7 +5,6 @@ class User extends Component {
     user: null,
   }
   componentDidMount() {
-    console.log(this.props);
   }
   
   render() { 
