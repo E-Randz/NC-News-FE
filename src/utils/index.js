@@ -9,3 +9,8 @@ export const assembleQueryString = (sortBy, limit, sortOrder) => {
 
   return queries.length ?  `?${queries.join('&')}` : '';
 }
+
+export const timestampToDate = (created_at) => {
+  const timestamp = created_at.toString();
+  return new Date(timestamp).toString().replace(/ GMT.*/, '');
+}

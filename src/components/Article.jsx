@@ -5,6 +5,7 @@ import Comments from './Comments';
 import Delete from './Delete';
 import ArticleInfo from './ArticleInfo';
 import '../styles/Article.css';
+import { timestampToDate } from '../utils';
 
 class Article extends Component {
   state = { 
@@ -34,16 +35,16 @@ class Article extends Component {
   render() { 
     const { user } = this.props;
     const { article, commentsButton, comments, commentButtonPurpose, deleteShowing } = this.state;
+    let date;
+
     if (article) {
-      let timestamp = article.created_at.toString();
-      const created_at = new Date(timestamp).toString().replace(/ GMT.*/, '');
-      article.created_at = created_at;
+     date = timestampToDate(article.created_at);
     }
 
     return ( 
       article &&
         <div className="Article">
-          <ArticleInfo article={article} />
+          <ArticleInfo article={article} date={date} />
           {deleteShowing && <Delete itemType='article' item={article} text='Delete Article' />}
           <div className='Article-body'>
             <p>{article.body}</p>
