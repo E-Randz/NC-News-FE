@@ -7,7 +7,7 @@ class Nav extends Component {
   render() { 
     // const { user } = this.props;
     return ( 
-      <div className='Header-nav'>
+      <nav className='Header-nav'>
         <ul className='Nav-list'>
           <li className='Nav-item'><Link to='/articles'>Articles</Link></li>
           <li className='Nav-item'><Link to='/topics'>Topics</Link></li>
@@ -22,7 +22,7 @@ class Nav extends Component {
               </span>
           </li> */}
         </ul>
-      </div>
+      </nav>
     );
   }
 }

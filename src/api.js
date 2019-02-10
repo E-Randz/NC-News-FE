@@ -19,6 +19,7 @@ export const fetchComments = async (article_id) => {
   const { data: { comments } } = await axios.get(url)
   return comments;
 }
+
 export const fetchTopics = async () => {
   const url = `${BASE_URL}/topics`;
   const { data: { topics } } = await axios.get(url)
