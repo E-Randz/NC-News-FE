@@ -17,21 +17,23 @@ class Article extends Component {
   }
 
   componentDidMount() {
+    const { article_id, user } = this.props;
+    // If new article just been posted, use the article object that is sent back
     if (this.props.location.state.article) {
-      const { article } = this.props.location.state;
+      const { article, article : {username} } = this.props.location.state;
+      const deleteShowing = user.username === username;
       article.comment_count = 0;
-      this.setState({article})
+      this.setState({article, deleteShowing});
     } else {
-        const { article_id, user } = this.props;
         fetchOneArticle(article_id)
           .then((article) => {
-            this.setState({
-              article,
-              deleteShowing: user.username === article.author,
-            })
+            const { author } = article;
+            const deleteShowing = user.username === author;
+            this.setState({article, deleteShowing});
           })
       }
   }
+
   render() { 
     const { user } = this.props;
     const { article, comments, commentButtonPurpose, deleteShowing } = this.state;

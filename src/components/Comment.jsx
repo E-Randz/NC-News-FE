@@ -8,6 +8,7 @@ class Comment extends Component {
   state = { 
     deleteShowing: false
   }
+  
   componentDidMount() {
     const { user } = this.props;
     const { author } = this.props.comment;

@@ -7,6 +7,7 @@ class Auth extends Component {
     userErr: '',
     userLoading: false,
   }
+  
   render() { 
     const { user, children } = this.props;
     const { username, userErr } = this.state;
@@ -29,6 +30,7 @@ class Auth extends Component {
       userErr: null,
     })
   }
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const { setUser } = this.props;

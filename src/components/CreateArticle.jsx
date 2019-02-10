@@ -8,7 +8,7 @@ class CreateArticle extends Component {
   state = { 
       title: '',
       body: '',
-      topic: '',
+      topic: 'coding',
       topicOptions: null,
   }
   componentDidMount() {
@@ -21,7 +21,7 @@ class CreateArticle extends Component {
       })
   }
   render() { 
-    const { topicOptions, title, body } = this.state;
+    const { topicOptions, title, body, topic } = this.state;
     const { className } = this.props;
     return (
       <>
@@ -31,9 +31,9 @@ class CreateArticle extends Component {
           {topicOptions && 
             <>
             <label htmlFor='topic'>Topic:</label>
-            <select id='topic' name='topic' onChange={this.handleChange}>
+            <select value={topic} id='topic' name='topic' onChange={this.handleChange}>
             {topicOptions.map(topic => {
-              return <option key={topic} value={topic}>{topic}</option>
+              return <option key={topic}>{topic}</option>
             })}
             </select>
             </>
