@@ -7,11 +7,16 @@ class User extends Component {
   }
   componentDidMount() {
     const { username } = this.props;
-    let user;
     getUserByUsername(username)
-      .then((user) => {
-        console.log(user);
+      .then(({ user }) => {
+        this.setState({
+          user,
+        })
       })
+  }
+
+  componentDidUpdate() {
+
   }
   
   render() { 
