@@ -14,9 +14,10 @@ class Articles extends Component {
       sortBy: 'created_at',
       limit: 10, 
       sortOrder: 'desc',
+      page: '1',
     },
     toggleFilter: 'Filter',
-    err: null,
+    err: false,
     errMessage: '',
   }
 
@@ -31,7 +32,7 @@ class Articles extends Component {
       fetchArticles(topic, queries)
         .then((articles) => {
           this.setState({
-            articles
+            articles,
           })
         })
         .catch((err) => {
@@ -86,14 +87,25 @@ class Articles extends Component {
 
   handleFilterSubmit = (e) => {
     e.preventDefault();
-    const { queries: { sortBy, limit, sortOrder } } = this.state;
+    const { queries: { sortBy, limit, sortOrder, page } } = this.state;
     const { topic } = this.props;
-    const queryString = assembleQueryString(sortBy, limit, sortOrder);
+    const queryString = assembleQueryString(sortBy, limit, sortOrder, page);
     fetchArticles(topic, queryString)
       .then((articles) => {
-        this.setState({
-          articles,
-        })
+        let newState;
+        if (!articles.length) {
+          newState = { 
+            err: true,
+            errMessage: 'No articles match this query!',
+           }
+        } else {
+          newState = {
+            articles,
+            err: false,
+            errMessage: '',
+          }
+        }
+        this.setState(newState);
       })
       .catch((err) => {
         this.setState({err})

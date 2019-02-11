@@ -3,7 +3,7 @@ import Button from './Button';
 import '../styles/SortAndFilter.css';
 
 const SortAndFilter = ({ FilterProps }) => {
-  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder } = FilterProps;
+  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder, page } = FilterProps;
 
   return ( 
     <div className='Sort-Filter'>
@@ -12,6 +12,11 @@ const SortAndFilter = ({ FilterProps }) => {
       <div className='limitdiv'>
         <label htmlFor="limit">limit:</label>
         <input value={limit} onChange={handleFilterChange} type="number" name="limit" id="limit"/>
+      </div>
+
+      <div className='pagediv'>
+        <label htmlFor="page">page:</label>
+        <input value={page} onChange={handleFilterChange} type="number" name="page" id="page"/>
       </div>
 
       <div className='sort-by-div'>
