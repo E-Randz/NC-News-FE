@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { fetchUserData } from '../api';
 import UserItem from './UserItem';
 import Articles from './Articles';
+import { navigate } from '@reach/router';
+import '../styles/UserProfile.css';
+import '../styles/UserItem.css';
+import '../styles/Articles.css';
 
-class User extends Component {
+class UserProfile extends Component {
   state = { 
     user: null,
     articles: [],
@@ -17,20 +21,22 @@ class User extends Component {
           articles,
         })
       })
+      .catch((err) => {
+        navigate('/error', {state: {errCode: err.response.status}});
+      })
   }
   
   render() { 
     const { user,  articles } = this.state;
-    const { username } = user;
     return ( 
       user &&
-      <>
-        <h1>{username}</h1>
+      <div className="User-profile">
+        <h1>Profile</h1>
         <UserItem user={user} className='User-profile-item' />
-        <Articles className='User-articles' articles={articles} title={`${username}'s Articles`} />
-      </>
+        <Articles className='User-articles' articles={articles} title={`${user.username}'s Articles`} />
+      </div>
     );
   }
 }
  
-export default User;
+export default UserProfile;

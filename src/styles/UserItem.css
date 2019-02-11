@@ -1,4 +1,4 @@
-.User-item, .Home-user-item {
+.User-item, .Home-user-item, .User-profile-item {
   padding: 1em;
   background: var(--lightpanel);
   border-radius: 2em;
@@ -6,6 +6,9 @@
 }
 .User-avatar {
   width: 10em;
+}
+.User-profile-item button {
+  display: none;
 }
 
 @media screen and (min-width: 600px) {

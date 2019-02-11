@@ -1,0 +1,19 @@
+.User-profile {
+  grid-column: 2 / 5;
+  display: grid;
+}
+
+@media screen and (min-width: 600px) {
+  .User-profile{
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .User-profile h1 {
+    grid-column: 3 / 4;
+  }
+  .User-profile-item {
+    grid-column: 2 / 5;
+  }
+  .User-articles {
+    grid-column: 1 / 7;
+  }
+}
