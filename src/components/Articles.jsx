@@ -21,16 +21,23 @@ class Articles extends Component {
   }
 
   componentDidMount() {
-    const { topic, queries } = this.props;
-    fetchArticles(topic, queries)
-      .then((articles) => {
-        this.setState({
-          articles
+    const { topic, queries, articles } = this.props;
+    if (articles) {
+      this.setState({
+        articles,
+      })
+    }
+    else {
+      fetchArticles(topic, queries)
+        .then((articles) => {
+          this.setState({
+            articles
+          })
         })
-      })
-      .catch((err) => {
-        navigate('/error', {state: {errCode: err.response.status}});
-      })
+        .catch((err) => {
+          navigate('/error', {state: {errCode: err.response.status}});
+        })
+    }
   }
 
   componentDidUpdate(prevProps) {

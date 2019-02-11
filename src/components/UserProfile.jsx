@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import { getUserByUsername, fetchUserArticles } from '../api';
+import { fetchUserData } from '../api';
+import UserItem from './UserItem';
+import Articles from './Articles';
 
 class User extends Component {
   state = { 
     user: null,
+    articles: [],
   }
   componentDidMount() {
     const { username } = this.props;
-    getUserByUsername(username)
-      .then(({ user }) => {
+    fetchUserData(username)
+      .then(({user, articles}) => {
         this.setState({
           user,
+          articles,
         })
       })
   }
-
-  componentDidUpdate() {
-
-  }
   
   render() { 
+    const { user,  articles } = this.state;
+    const { username } = user;
     return ( 
-      <div>Not in use yet. Will be filled with profile info and previous post and comments.
-      </div>
+      user &&
+      <>
+        <h1>{username}</h1>
+        <UserItem user={user} className='User-profile-item' />
+        <Articles className='User-articles' articles={articles} title={`${username}'s Articles`} />
+      </>
     );
   }
 }

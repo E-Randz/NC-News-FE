@@ -1,5 +1,6 @@
 import axios from 'axios'
-const BASE_URL = 'https://northcoders-news-project.herokuapp.com/api'
+const BASE_URL = 'https://northcoders-news-project.herokuapp.com/api';
+
 
 export const fetchArticles = async (topic, queries) => {
   let url = topic ? `${BASE_URL}/topics/${topic}/articles` : `${BASE_URL}/articles`;
@@ -38,10 +39,10 @@ export const getUserByUsername = async (username) => {
   return data;
 }
 
-export const fetchUserArticles = async (username) => {
+export const fetchUserData = async (username) => {
   const url = `${BASE_URL}/users/${username}/articles`;
-  const { data: { articles } } = await axios.get(url);
-  return articles;
+  const { data } = await axios.get(url);
+  return data;
 }
 
 export const addNewArticle = async (username, topic, title, body) => {
