@@ -34,7 +34,7 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="App">
-        <Header user={user}/>
+        <Header handleLogout={this.handleLogout} user={user}/>
         <Auth user={user} setUser={this.setUser} >
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
@@ -59,6 +59,12 @@ class App extends Component {
     sessionStorage.setItem('user', userString);
     this.setState({
       user,
+    })
+  }
+  handleLogout = () => {
+    sessionStorage.removeItem('user')
+    this.setState({
+      user: null,
     })
   }
 }

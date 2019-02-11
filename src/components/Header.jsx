@@ -3,11 +3,11 @@ import '../styles/Header.css'
 import Logo from './Logo';
 import Nav from './Nav';
 
-const Header = ({ user }) => {
+const Header = ({ user, handleLogout }) => {
     return ( 
       <div className='App-header'>
         <Logo />
-        <Nav user={user}/>
+        <Nav handleLogout={handleLogout} user={user}/>
       </div>
      );
   }
