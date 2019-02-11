@@ -61,10 +61,19 @@
   text-align: end;
   margin: 0.5em
 }
+.Home-articles h1 {
+  margin-bottom: 0;
+}
 
 @media screen and (min-width: 600px) {
   .Articles {
     grid-column: 2 / 5;
+  }
+  .Home-articles {
+    grid-row: 2 / 7;
+  }
+  .Home-articles h1 {
+    margin-top: 0;
   }
 }
 

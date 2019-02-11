@@ -24,7 +24,7 @@
 @media screen and (min-width: 600px) {
   .Home-create-article {
     display: block;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
   }
 }

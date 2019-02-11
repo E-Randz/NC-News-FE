@@ -14,7 +14,7 @@ const UserItem = (props) => {
       </div>
       <p className="User-username">Username: {username}</p>
       <p className="User-name">Name: {name}</p>
-      <Link to={`${username}`} ><Button buttonPurpose='More Info'/></Link>
+      <Link to={`/users/${username}`} ><Button buttonPurpose='More Info'/></Link>
     </div>
   );
 }
