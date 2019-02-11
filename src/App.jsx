@@ -19,6 +19,17 @@ class App extends Component {
   state = {
     user: null,
   }
+
+  componentDidMount() {
+    const user = sessionStorage.getItem('user');
+    const parsedUser = JSON.parse(user);
+    if (user) {
+      this.setState({
+        user: parsedUser
+      });
+    }
+  }
+
   render() {
     const { user } = this.state;
     return (
@@ -44,6 +55,8 @@ class App extends Component {
     );
   }
   setUser = (user) => {
+    const userString = JSON.stringify(user);
+    sessionStorage.setItem('user', userString);
     this.setState({
       user,
     })

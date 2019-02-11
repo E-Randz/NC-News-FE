@@ -20,6 +20,7 @@ class Dashboard extends Component {
     }
     return ( 
       <div className='Dashboard'>
+        <button onClick={this.handleLogout}>Logout</button>
         {user && dashboardOpen &&
         <div className='Dashboard-buttons'>
           <Link to='/create-article'>Create Article</Link>

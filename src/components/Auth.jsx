@@ -10,6 +10,7 @@ class Auth extends Component {
   
   render() { 
     const { user, children } = this.props;
+    console.log(user);
     const { username, userErr } = this.state;
     return (
       user ? children : 
