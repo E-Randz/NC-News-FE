@@ -135,7 +135,7 @@ class Articles extends Component {
 
 Articles.propTypes = {
   topic: PropTypes.string,
-  queries: PropTypes.object,
+  queries: PropTypes.string,
   articles: PropTypes.array,                           
   className: PropTypes.string,
   title: PropTypes.string            

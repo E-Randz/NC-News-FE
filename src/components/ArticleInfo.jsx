@@ -6,20 +6,23 @@ import '../styles/ArticleInfo.css';
 import PropTypes from 'prop-types';
 
 
-const ArticleInfo = ({ article, date }) => 
+const ArticleInfo = ({ article, date }) => {
+  return (
+    <div className="Article-info">
+      <div className="Article-header">
+        <h1 className="Article-title">{article.title}</h1>
+        <p className="Article-author">{article.author}</p>
+        <p className="Article-topic">~{article.topic}~</p>
+        <p className="Article-createdAt">{date}</p>
+      </div>
+      <div className="Comments-And-Votes">
+        <Votes votes={article.votes} item={article} />
+        <p className="ArticleInfo-commentCount"><FontAwesomeIcon icon={faComment}/> {article.comment_count}</p>
+      </div>
+    </div>
+  )
+}
 
-<div className="Article-info">
-  <div className="Article-header">
-    <h1 className="Article-title">{article.title}</h1>
-    <p className="Article-author">{article.author}</p>
-    <p className="Article-topic">~{article.topic}~</p>
-    <p className="Article-createdAt">{date}</p>
-  </div>
-  <div className="Comments-And-Votes">
-    <Votes votes={article.votes} item={article} />
-    <p className="ArticleInfo-commentCount"><FontAwesomeIcon icon={faComment}/> {article.comment_count}</p>
-  </div>
-</div>
 
 ArticleInfo.propTypes = {
   article: PropTypes.object.isRequired,

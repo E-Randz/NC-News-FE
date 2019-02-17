@@ -1,6 +1,24 @@
 import React from 'react';
 import '../styles/Button.css';
-const Button = ({ className, buttonPurpose, handleClick, disabled = false, children }) => <button className={className} disabled={disabled} onClick={handleClick}>{ buttonPurpose || children }</button>
+import PropTypes from 'prop-types';
+
+const Button = ({ className, buttonPurpose, handleClick, disabled = false, children }) => {
+  return (
+    <button 
+      className={className}
+      disabled={disabled}
+      onClick={handleClick}>{ buttonPurpose || children }
+    </button>
+  )
+}
+
+Button.propTypes = {
+  className: PropTypes.string.isRequired,
+  buttonPurpose: PropTypes.string,
+  handleClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  children: PropTypes.element,
+}
 
 
 export default Button;

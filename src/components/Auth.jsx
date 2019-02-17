@@ -56,7 +56,7 @@ class Auth extends Component {
 Auth.propTypes = {
   user: PropTypes.object,
   setUser: PropTypes.func.isRequired,                           
-  children: PropTypes.element,      
+  children: PropTypes.array,      
 }
  
 export default Auth;
