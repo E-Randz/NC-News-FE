@@ -7,18 +7,17 @@ Northcoders News is a front-end React App that serves up current news based on a
 * Post new comments on articles.
 * Vote on articles and comments.
 
-```md
-### Front-End React App
+
+### **Front-End React App**
 
 #### Github Repo:
 https://github.com/E-Randz/NC-News-FE
 
 #### Deployed Project:
 https://dazzling-lewin-7fee2d.netlify.com
-```
 
 
-### Back-End API App (for reference)
+### **Back-End API App (for reference)**
 
 #### Github Repo:
 https://github.com/E-Randz/BE2-NC-Knews

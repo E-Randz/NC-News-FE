@@ -9,10 +9,10 @@
   width: 1em;
   overflow: hidden;
 }
-.Nav-item a {
+.Nav-item a, .Nav-item button {
   text-decoration: none;
   color: var(--lightgrey);
 }
-.Nav-item a:hover {
+.Nav-item a:hover, .Nav-item button:hover {
   color: var(--red);
 }

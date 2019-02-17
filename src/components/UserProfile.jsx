@@ -41,7 +41,7 @@ class UserProfile extends Component {
 }
 
 UserProfile.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 }
  
 export default UserProfile;
