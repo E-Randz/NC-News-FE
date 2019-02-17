@@ -3,6 +3,7 @@ import { Link } from '@reach/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { timestampToDate } from '../utils';
+import PropTypes from 'prop-types';
 
 const ArticleCard = ({ article }) => {
   const { article_id, title, author, topic, comment_count, votes, created_at } = article;
@@ -19,6 +20,10 @@ const ArticleCard = ({ article }) => {
       </div>
    </div>
   );
+}
+
+ArticleCard.propTypes = {
+  article: PropTypes.object.isRequired,                
 }
 
 export default ArticleCard;
