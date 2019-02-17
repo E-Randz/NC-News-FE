@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/PageNotFound.css';
+import PropTypes from 'prop-types';
 
-const PageNotFound = (props) => {
+const HandleError = (props) => {
   const { errCode } = props.location.state;
   const errorMessages = {
     '404': 'Page Not Found!',
@@ -16,4 +17,9 @@ const PageNotFound = (props) => {
   );
 }
 
-export default PageNotFound;
+HandleError.propTypes = {
+  state: PropTypes.object,
+  location: PropTypes.object
+}
+
+export default HandleError;
