@@ -63,10 +63,17 @@ This installs the following in dependencies:
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
+  }
+
 ```
 The above are the minimum version numbers.
 
-#### 2. Starting the React app
+### 2. Starting the React app
 
 Once all the dependencies have been installed, start the React app with the following command:
 ```bash
@@ -75,7 +82,7 @@ npm start
 The browser should open a window automatically with the application. If it does not, navigate to localhost:3000 in the browser.
 
 
-#### 3. Logging in
+### 3. Logging in
 
 There is no password authentication in the back-end yet, but the front-end will require a valid username for the application to get past the Auth component. Below is a list of valid usernames.
 
@@ -88,56 +95,29 @@ There is no password authentication in the back-end yet, but the front-end will 
 
 
 
-<!-- ## Deployment
+## Deployment
 
 This app has been deployed on Netlify. The link is in the introduction to this README file. To deploy your own version, please follow the below instructions
 
-1. Sign up to Netlify on https://app.netlify.com/signup
-2. Install Heroku globally on your local machine using the following terminal command:
-```bash
-npm i -g heroku
+1. To allow netflify to handle redirects, create a **_redirects** file in the public folder of your repo and populate it with the following line:
 ```
-3. In the root directory of the app log in to Heroku. The following command will make you open a browser to login to Heroku.
-4. To create a new app, enter:
-```bash
-heroku create <app-name>
+/* /index.html 200
 ```
-5. Push the app to heroku:
-```bash
-git push heroku master
-```
-6. In your user area of Heroku, the app should now be available. Click into it and add 'Heroku Postgres' as an add-on. This will act as the database for the application.
-7. Click on the settings for the database and check these credentials against the output of the following terminal command:
-```bash
-heroku config:get DATABASE_URL
-```
-8. Verify that your knexfile.js has the production information, as in _Installing and Running in local development environment, Section 2_
-9. Migrating and Seeding the Database.
-- To create the tables for your database, run:
-```bash
-npm run migrate:rollback:prod
-```
-```bash
-npm run migrate:latest:prod
-```
-- If you would like the database to be seeded with the dev-data, run:
-```bash
-npm run seed:prod
-```
-- Alternatively, create your own production seed, and alter the following path in **./db/data/index.js** to reference the location of your production data:
-```js
-const production = require('./<production-data-path>');
-```
-**see ./db/data/development-data for reference**
+
+2. Sign up to Netlify on https://app.netlify.com/signup
+3. When prompted to do so, select the option to link with your GitHub account.
+4. Once the account has been linked, on the 'Create a new site' page, select the option to continually deploy wuth GitHub.
+5. In the 'Repository access' configuration box, select the NC News repository.
+6. On the build options tab, verify the default settings, then click 'Deploy Site'
+
 
 
 ## Built With
 
-* [Node](https://nodejs.org/en/) - JavaScript Runtime Environment
-* [Express](https://expressjs.com/) - Web application framework
-* [Knex](https://knexjs.org/) - SQL Query and Schema Builder
-* [Mocha](https://knexjs.org/) - Testing Framework
-* [Supertest](https://www.npmjs.com/package/supertest) - Package for testing HTTP requests
+* [create-react-app](https://github.com/facebook/create-react-app) - React boilerplate
+* [axios](https://www.npmjs.com/package/axios) - promise-based http client
+* [PropTypes](https://www.npmjs.com/package/prop-types) - Runtime type checking
+* [Reach/Router](https://github.com/reach/router) - Routing for React projects
 * [GitHub](https://github.com/) - Version Control
 
 ## Authors
@@ -146,4 +126,4 @@ const production = require('./<production-data-path>');
 
 ## Acknowledgments
 
-* Thank you to all the lovely people at Northcoders who helped throughout this project. -->
+* Thank you to the lovely team at Northcoders.
