@@ -6,6 +6,7 @@ import { navigate } from '@reach/router';
 import '../styles/UserProfile.css';
 import '../styles/UserItem.css';
 import '../styles/Articles.css';
+import PropTypes from 'prop-types';
 
 class UserProfile extends Component {
   state = { 
@@ -37,6 +38,10 @@ class UserProfile extends Component {
       </div>
     );
   }
+}
+
+UserProfile.propTypes = {
+  username: PropTypes.string.isRequired,
 }
  
 export default UserProfile;
