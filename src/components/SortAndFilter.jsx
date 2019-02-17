@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import '../styles/SortAndFilter.css';
+import PropTypes from 'prop-types';
 
 const SortAndFilter = ({ FilterProps }) => {
   const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder, page } = FilterProps;
@@ -37,6 +38,10 @@ const SortAndFilter = ({ FilterProps }) => {
     </form>
   </div>
   );
+}
+
+SortAndFilter.propTypes = {
+  FilterProps: PropTypes.object.isRequired,
 }
 
 export default SortAndFilter;
