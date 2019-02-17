@@ -21,7 +21,7 @@ class Article extends Component {
   componentDidMount() {
     const { article_id } = this.props;
     // If new article just been posted, use the article object that is sent back
-    if (this.props.location.state.article) {
+    if (this.props.location.state) {
       const { article } = this.props.location.state;
       article.comment_count = 0;
       article.author = article.username;

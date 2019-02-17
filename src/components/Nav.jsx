@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Nav.css'
 import { Link } from '@reach/router'
+import PropTypes from 'prop-types';
 
 class Nav extends Component {
   state = {  }
@@ -17,6 +18,11 @@ class Nav extends Component {
       </nav>
     );
   }
+}
+
+Nav.propTypes = {
+  user: PropTypes.object,
+  handleLogout: PropTypes.func
 }
  
 export default Nav;
