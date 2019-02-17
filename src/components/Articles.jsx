@@ -6,6 +6,8 @@ import { assembleQueryString } from '../utils';
 import Button from './Button';
 import ArticleCard from './ArticleCard';
 import { navigate } from '@reach/router';
+import PropTypes from 'prop-types';
+
 
 class Articles extends Component {
   state = { 
@@ -129,6 +131,14 @@ class Articles extends Component {
       toggleFilter,
     })
   }
+}
+
+Articles.propTypes = {
+  topic: PropTypes.string,
+  queries: PropTypes.object,
+  articles: PropTypes.array,                           
+  className: PropTypes.string,
+  title: PropTypes.string            
 }
 
  
