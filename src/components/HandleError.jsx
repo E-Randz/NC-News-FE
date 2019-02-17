@@ -8,12 +8,12 @@ const PageNotFound = (props) => {
     '400': 'Bad Request',
     '500': 'Something went wrong',
   }
-  return ( 
-    <div className='Page-not-found'>
+  return (
+    <div className="Page-not-found">
       <h1>{errCode}</h1>
       <p>{errorMessages[errCode]}</p>
     </div>
   );
 }
- 
+
 export default PageNotFound;

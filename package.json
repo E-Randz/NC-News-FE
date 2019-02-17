@@ -20,7 +20,10 @@
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ]
   },
   "browserslist": [
     ">0.2%",

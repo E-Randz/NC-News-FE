@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faComment, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import { faComment, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { timestampToDate } from '../utils';
 
 const ArticleCard = ({ article }) => {
-  const {article_id, title, author, topic, comment_count, votes, created_at } = article;
+  const { article_id, title, author, topic, comment_count, votes, created_at } = article;
   const date = timestampToDate(created_at)
-  return ( 
+  return (
     <div className="Article-item">
       <h2 className="Article-title"><Link to={`/articles/${article_id}`}>{title}</Link></h2>
       <p className="Article-author">{author}</p>
@@ -20,5 +20,5 @@ const ArticleCard = ({ article }) => {
    </div>
   );
 }
- 
+
 export default ArticleCard;
