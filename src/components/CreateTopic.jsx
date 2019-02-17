@@ -3,6 +3,7 @@ import Button from './Button';
 import { addNewTopic } from '../api';
 import { navigate } from '@reach/router';
 import '../styles/CreateTopic.css';
+import PropTypes from 'prop-types'; 
 
 class CreateTopic extends Component {
   state = { 
@@ -54,6 +55,10 @@ class CreateTopic extends Component {
       [name]: value,
     })
   }
+}
+
+CreateTopic.propTypes = {
+  className: PropTypes.string.isRequired
 }
  
 export default CreateTopic;
