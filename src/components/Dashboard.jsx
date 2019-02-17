@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPenSquare, faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import '../styles/Dashboard.css';
 import { Link } from '@reach/router';
+import PropTypes from 'prop-types';
 
 class Dashboard extends Component {
   state = { 
@@ -37,6 +38,10 @@ class Dashboard extends Component {
       dashboardOpen: !dashboardOpen,
     })
   }
+}
+
+Dashboard.propTypes = {
+  user: PropTypes.object
 }
  
 export default Dashboard;
