@@ -13,7 +13,7 @@ class Nav extends Component {
           <li className='Nav-item'><Link to='/articles'>Articles</Link></li>
           <li className='Nav-item'><Link to='/topics'>Topics</Link></li>
           <li className='Nav-item'><Link to='/users'>Users</Link></li>
-          {user && <li className='Nav-item'><button onClick={handleLogout}>Logout</button></li>}
+          {user && <li className='Nav-item' onClick={handleLogout}><Link to='/'>Log out</Link></li>}
         </ul>
       </nav>
     );
