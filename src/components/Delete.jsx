@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import '../styles/DeleteButton.css';
 import { deleteItem } from '../api';
 import { Redirect } from '@reach/router';
+import PropTypes from 'prop-types'
 
 class Delete extends Component {
   state = { 
@@ -57,6 +58,10 @@ class Delete extends Component {
     }
 
   }
+}
+
+Delete.propTypes = {
+  DeleteProps: PropTypes.object
 }
 
 export default Delete;
