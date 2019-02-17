@@ -14,6 +14,7 @@ import Dashboard from './components/Dashboard';
 import CreateArticle from './components/CreateArticle';
 import CreateTopic from './components/CreateTopic';
 import HandleError from './components/HandleError';
+import { navigate } from '@reach/router';
 
 class App extends Component {
   state = {
@@ -63,6 +64,7 @@ class App extends Component {
   }
   handleLogout = () => {
     sessionStorage.removeItem('user')
+    navigate('/')
     this.setState({
       user: null,
     })
