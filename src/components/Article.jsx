@@ -7,6 +7,7 @@ import ArticleInfo from './ArticleInfo';
 import '../styles/Article.css';
 import { timestampToDate } from '../utils';
 import { navigate } from '@reach/router';
+import PropTypes from 'prop-types';
 
 class Article extends Component {
   state = { 
@@ -95,5 +96,13 @@ class Article extends Component {
     })
   }
 }
- 
+
+Article.propTypes = {
+  article_id: PropTypes.string,
+  location: PropTypes.object,               
+  state: PropTypes.object,          
+  article: PropTypes.object,                           
+  user: PropTypes.object,                
+}
+
 export default Article;
