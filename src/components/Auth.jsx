@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getUserByUsername } from '../api';
+import PropTypes from 'prop-types';
 
 class Auth extends Component {
   state = { 
@@ -50,6 +51,12 @@ class Auth extends Component {
         })
       })
   }
+}
+
+Auth.propTypes = {
+  user: PropTypes.object,
+  setUser: PropTypes.func.isRequired,                           
+  children: PropTypes.element,      
 }
  
 export default Auth;
