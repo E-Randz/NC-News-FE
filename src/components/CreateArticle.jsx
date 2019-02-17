@@ -3,6 +3,8 @@ import Button from './Button';
 import '../styles/CreateArticle.css'
 import { addNewArticle, fetchTopics } from '../api';
 import { navigate } from '@reach/router';
+import PropTypes from 'prop-types';
+
 
 class CreateArticle extends Component {
   state = { 
@@ -84,6 +86,11 @@ class CreateArticle extends Component {
       [name]: value,
     })
   }
+}
+
+CreateArticle.propTypes = {
+  className: PropTypes.string.isRequired,
+  user: PropTypes.object,
 }
  
 export default CreateArticle;
