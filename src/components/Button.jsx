@@ -13,7 +13,7 @@ const Button = ({ className, buttonPurpose, handleClick, disabled = false, child
 }
 
 Button.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   buttonPurpose: PropTypes.string,
   handleClick: PropTypes.func,
   disabled: PropTypes.bool,
