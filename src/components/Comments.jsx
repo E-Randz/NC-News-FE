@@ -4,6 +4,8 @@ import Comment from './Comment';
 import Button from './Button';
 import '../styles/Comments.css'
 import CreateComment from './CreateComment';
+import PropTypes from 'prop-types';
+
 
 class Comments extends Component {
   state = { 
@@ -22,7 +24,7 @@ class Comments extends Component {
         loadingComments: false,
       })
     })
-    .catch(err => {
+    .catch(() => {
       this.setState({
         commentsErr: 'There are no comments for this article yet!',
         loadingComments: false,
@@ -97,6 +99,12 @@ class Comments extends Component {
       })
       changeCommentCount(1)
   }
+}
+
+Comments.propTypes = {
+  article_id: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+  changeCommentCount: PropTypes.func.isRequired,
 }
  
 export default Comments;
