@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import '../styles/UserItem.css';
+import PropTypes from 'prop-types';
 
 const UserItem = (props) => {
   const { username, name, avatar_url } = props.user;
@@ -16,6 +17,11 @@ const UserItem = (props) => {
       <Link to={`/users/${username}`} ><button>More Info</button></Link>
     </div>
   );
+}
+
+UserItem.propTypes = {
+  user: PropTypes.object,
+  className: PropTypes.string.isRequired
 }
 
 export default UserItem;
