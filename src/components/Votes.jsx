@@ -4,6 +4,7 @@ import { changeVoteCount } from '../api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons';
 import '../styles/Votes.css';
+import PropTypes from 'prop-types';
 
 class Votes extends Component {
   state = { 
@@ -42,6 +43,12 @@ class Votes extends Component {
         }
     })
   }
+}
+
+Votes.propTypes = {
+  votes: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
+  comment_article_id: PropTypes.string
 }
  
 export default Votes
