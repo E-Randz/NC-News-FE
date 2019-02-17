@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import'../styles/CreateComment.css';
+import PropTypes from 'prop-types';
+
 class CreateComment extends Component {
   state = { 
     body: '',
@@ -25,6 +27,10 @@ class CreateComment extends Component {
       [name]: value,
     })
   }
+}
+
+CreateComment.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
 }
  
 export default CreateComment;
