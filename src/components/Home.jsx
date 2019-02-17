@@ -4,6 +4,7 @@ import UserItem from './UserItem';
 import CreateArticle from './CreateArticle';
 import CreateTopic from './CreateTopic';
 import '../styles/Home.css';
+import PropTypes from 'prop-types';
 
 
 const Home = (props) => {
@@ -19,6 +20,10 @@ const Home = (props) => {
       <CreateTopic className="Home-create-topic" />
     </div>
   );
+}
+
+Home.propTypes = {
+  user: PropTypes.object.isRequired
 }
 
 export default Home;
