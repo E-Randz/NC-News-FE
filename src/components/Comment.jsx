@@ -3,6 +3,7 @@ import Votes from './Votes';
 import Delete from './Delete';
 import '../styles/Comment.css';
 import { timestampToDate } from '../utils';
+import PropTypes from 'prop-types';
 
 class Comment extends Component {
   state = { 
@@ -48,5 +49,12 @@ class Comment extends Component {
     );
   }
 }
- 
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  comment_article_id: PropTypes.string.isRequired,
+  removeComment: PropTypes.func.isRequired,
+}
+
 export default Comment;
