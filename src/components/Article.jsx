@@ -20,7 +20,7 @@ class Article extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
-    if (this.props.location.state) {
+    if (this.props.location.state.article) {
       const { article } = this.props.location.state;
       article.comment_count = 0;
       article.author = article.username;
