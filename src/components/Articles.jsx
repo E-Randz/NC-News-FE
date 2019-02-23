@@ -158,7 +158,8 @@ Articles.propTypes = {
   articles: PropTypes.array,                           
   className: PropTypes.string,
   title: PropTypes.string,
-  limit: PropTypes.number,         
+  limit: PropTypes.number, 
+  profile: PropTypes.bool,        
 }
 
  
