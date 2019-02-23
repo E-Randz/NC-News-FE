@@ -14,7 +14,7 @@ Northcoders News is a front-end React App that serves up current news based on a
 https://github.com/E-Randz/NC-News-FE
 
 #### Deployed Project:
-https://dazzling-lewin-7fee2d.netlify.com
+https://er-northcoders-news.netlify.com/
 
 
 ### **Back-End API App (for reference)**
@@ -23,8 +23,6 @@ https://dazzling-lewin-7fee2d.netlify.com
 https://github.com/E-Randz/BE2-NC-Knews
 
 #### Deployed Project:
-
-https://northcoders-news-project.herokuapp.com/
 
 For a full list of end-points please go to the following link:
 
