@@ -7,6 +7,7 @@ import Button from './Button';
 import ArticleCard from './ArticleCard';
 import { navigate } from '@reach/router';
 import PropTypes from 'prop-types';
+import PageSelector from './PageSelector';
 
 
 class Articles extends Component {
@@ -16,8 +17,9 @@ class Articles extends Component {
       sortBy: 'created_at',
       limit: 10, 
       sortOrder: 'desc',
-      page: '1',
+      page: 1,
     },
+    pageCount: 0,
     toggleFilter: 'Filter',
     err: false,
     errMessage: '',
@@ -32,9 +34,10 @@ class Articles extends Component {
     }
     else {
       fetchArticles(topic, queries)
-        .then((articles) => {
+        .then(({ data: { articles, article_count } }) => {
           this.setState({
             articles,
+            pageCount: Math.ceil(article_count/10)
           })
         })
         .catch((err) => {
@@ -56,10 +59,10 @@ class Articles extends Component {
   }
   
   render() { 
-    const { articles, queries, toggleFilter, err, errMessage } = this.state
+    const { articles, queries, toggleFilter, err, errMessage, pageCount } = this.state
+    const { page } = queries;
     const { topic, className, title } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
-
     const FilterProps = {
       queries: queries,
       handleFilterSubmit: this.handleFilterSubmit,
@@ -75,6 +78,7 @@ class Articles extends Component {
           {toggleFilter !== 'Filter' && <SortAndFilter FilterProps={FilterProps} />}
           {!err &&
             <div className='Articles-list'>
+              <PageSelector pageCount={pageCount} page={page} changePage={this.changePage} />
               {articles.map(article => {
                 const { article_id } = article;
                 return <ArticleCard key={article_id} article={article} />
@@ -88,12 +92,12 @@ class Articles extends Component {
   }
 
   handleFilterSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const { queries: { sortBy, limit, sortOrder, page } } = this.state;
     const { topic } = this.props;
     const queryString = assembleQueryString(sortBy, limit, sortOrder, page);
     fetchArticles(topic, queryString)
-      .then((articles) => {
+      .then(({ data: { articles } }) => {
         let newState;
         if (!articles.length) {
           newState = { 
@@ -130,6 +134,15 @@ class Articles extends Component {
     this.setState({
       toggleFilter,
     })
+  }
+  changePage = (e, change) => {
+    const { queries: { page } } = this.state;
+    const newPage = change ? page + change : +e.target.innerHTML;
+    this.setState(({ queries }) => {
+      return {
+        queries: {...queries, page: newPage}
+      }
+    }, () => this.handleFilterSubmit())
   }
 }
 

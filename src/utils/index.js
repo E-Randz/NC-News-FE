@@ -1,6 +1,7 @@
 export const assembleQueryString = (sortBy, limit, sortOrder, page) => {
   const qNames = ['sort_by', 'limit', 'order', 'p'];
   const qValues = [sortBy, limit, sortOrder, page];
+  console.log(qValues);
 
   const queries = qNames.reduce((acc, curr, i) => {
     if (qValues[i]) acc.push(`${curr}=${qValues[i]}`);

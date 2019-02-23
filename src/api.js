@@ -5,8 +5,8 @@ const BASE_URL = 'https://northcoders-news-project.herokuapp.com/api';
 export const fetchArticles = async (topic, queries) => {
   let url = topic ? `${BASE_URL}/topics/${topic}/articles` : `${BASE_URL}/articles`;
   url = queries ? url + queries : url;
-  const { data: { articles } } = await axios.get(url);
-  return articles;
+  const data = await axios.get(url);
+  return data;
 }
 
 export const fetchOneArticle = async (article_id) => {
