@@ -1,7 +1,7 @@
 .User-item, .Home-user-item, .User-profile-item {
   padding: 1em;
   background: var(--lightpanel);
-  border-radius: 2em;
+  border-radius: var(--radius);;
   box-shadow: 5px 5px 5px var(--grey);
 }
 .User-avatar {

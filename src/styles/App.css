@@ -5,6 +5,7 @@ html{
   --lightgrey: #DBDBDB;
   --grey: #817F82;
   --lightpanel: #eee;
+  --radius: 0.2em;
 }
 html {
   height: 100%;

@@ -1,5 +1,5 @@
 .Comment{
   border: 2px solid var(--petrol);
-  border-radius: 2em;
+  border-radius: var(--radius);;
   padding: 1em;
 }

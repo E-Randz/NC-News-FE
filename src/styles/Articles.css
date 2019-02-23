@@ -10,7 +10,7 @@
 }
 
 .Article-item {
-  border-radius: 2em;
+  border-radius: var(--radius);;
   padding: 1em;
   background: var(--lightpanel);
   box-shadow: 5px 5px 5px var(--grey);
@@ -36,7 +36,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--lightgrey);
-  border-radius: 2em;
+  border-radius: var(--radius);;
 }
 
 .Article-createdAt {
