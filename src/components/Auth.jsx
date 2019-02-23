@@ -21,6 +21,17 @@ class Auth extends Component {
           <button>Submit</button>
         </form>
         {userErr && <p>Invalid Username</p>}
+        <div>
+          <p>Please select from the following users to view this website</p>
+          <ul>
+            <li>tickle122</li>
+            <li>grumpy19</li>
+            <li>happyamy2016</li>
+            <li>cooljmessy</li>
+            <li>weegembump</li>
+            <li>jessjelly</li>
+          </ul>
+        </div>
       </div>
     );
   }
