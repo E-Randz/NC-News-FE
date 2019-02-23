@@ -34,7 +34,7 @@ class UserProfile extends Component {
       <div className="User-profile">
         <h1>Profile</h1>
         <UserItem user={user} className='User-profile-item' />
-        <Articles className='User-articles' articles={articles} title={`${user.username}'s Articles`} />
+        <Articles profile={true} className='User-articles' articles={articles} title={`${user.username}'s Articles`} />
       </div>
     );
   }

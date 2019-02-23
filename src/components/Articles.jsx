@@ -28,6 +28,7 @@ class Articles extends Component {
   componentDidMount() {
     const { topic, queries, articles, limit = 10 } = this.props;
     if (articles) {
+      console.log(articles);
       this.setState({
         articles,
       })
@@ -64,7 +65,7 @@ class Articles extends Component {
   render() { 
     const { articles, queries, toggleFilter, err, errMessage, pageCount } = this.state
     const { page } = queries;
-    const { topic, className, title } = this.props;
+    const { topic, className, title, profile } = this.props;
     const sortFields = ['created_at', 'title', 'topic', 'created_by', 'votes']
     const FilterProps = {
       queries: queries,
@@ -77,11 +78,11 @@ class Articles extends Component {
         <div className='Articles-results'>
           <h1>{title}</h1>
           {topic && <h3>~{topic}~</h3>}
-          <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} />
+          {!profile && <Button className='Articles-filter' buttonPurpose={toggleFilter} handleClick={this.toggleFilter} /> }
           {toggleFilter !== 'Filter' && <SortAndFilter FilterProps={FilterProps} />}
           {!err &&
             <div className='Articles-list'>
-              <PageSelector pageCount={pageCount} page={page} changePage={this.changePage} />
+              {!profile && <PageSelector pageCount={pageCount} page={page} changePage={this.changePage} />}
               {articles.map(article => {
                 const { article_id } = article;
                 return <ArticleCard key={article_id} article={article} />
