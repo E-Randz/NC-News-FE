@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/PageSelector.css'
 
 const PageSelector = ({ pageCount, changePage, page }) => {
   const pageNumbers = [];
