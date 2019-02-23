@@ -28,7 +28,6 @@ class Articles extends Component {
   componentDidMount() {
     const { topic, queries, articles, limit = 10 } = this.props;
     if (articles) {
-      console.log(articles);
       this.setState({
         articles,
       })
