@@ -20,6 +20,7 @@ class Articles extends Component {
       page: 1,
     },
     pageCount: 0,
+    article_count: 0,
     toggleFilter: 'Filter',
     err: false,
     errMessage: '',
@@ -37,6 +38,7 @@ class Articles extends Component {
         .then(({ data: { articles, article_count } }) => {
           this.setState(({ queries }) => {
             return {
+              article_count,
               articles,
               pageCount: Math.ceil(article_count/limit),
               queries: {...queries, limit}
@@ -49,7 +51,7 @@ class Articles extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if(this.props.topic !== prevProps.topic ) {
       fetchArticles()
         .then((articles) => {
@@ -96,7 +98,7 @@ class Articles extends Component {
 
   handleFilterSubmit = (e) => {
     if (e) e.preventDefault();
-    const { queries: { sortBy, limit, sortOrder, page } } = this.state;
+    const { article_count, queries: { sortBy, limit, sortOrder, page } } = this.state;
     const { topic } = this.props;
     const queryString = assembleQueryString(sortBy, limit, sortOrder, page);
     fetchArticles(topic, queryString)
@@ -109,6 +111,7 @@ class Articles extends Component {
            }
         } else {
           newState = {
+            pageCount: Math.ceil(article_count/limit),
             articles,
             err: false,
             errMessage: '',
