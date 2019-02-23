@@ -15,7 +15,7 @@ const Home = (props) => {
       <h1 className="Home-title">NC News</h1>
       <h2 className="Dashboard-title">Dashboard</h2>
       <UserItem className="Home-user-item" user={user}/>
-      <Articles queries={queries} title="Top Articles" className="Home-articles"/>
+      <Articles queries={queries} limit={5} title="Top Articles" className="Home-articles"/>
       <CreateArticle user={user} className="Home-create-article" />
       <CreateTopic className="Home-create-topic" />
     </div>
