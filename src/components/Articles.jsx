@@ -26,7 +26,7 @@ class Articles extends Component {
   }
 
   componentDidMount() {
-    const { topic, queries, articles } = this.props;
+    const { topic, queries, articles, limit = 10 } = this.props;
     if (articles) {
       this.setState({
         articles,
@@ -35,9 +35,12 @@ class Articles extends Component {
     else {
       fetchArticles(topic, queries)
         .then(({ data: { articles, article_count } }) => {
-          this.setState({
-            articles,
-            pageCount: Math.ceil(article_count/10)
+          this.setState(({ queries }) => {
+            return {
+              articles,
+              pageCount: Math.ceil(article_count/limit),
+              queries: {...queries, limit}
+            };
           })
         })
         .catch((err) => {
@@ -151,7 +154,8 @@ Articles.propTypes = {
   queries: PropTypes.string,
   articles: PropTypes.array,                           
   className: PropTypes.string,
-  title: PropTypes.string            
+  title: PropTypes.string,
+  limit: PropTypes.number,         
 }
 
  
