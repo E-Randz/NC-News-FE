@@ -4,7 +4,7 @@ import '../styles/SortAndFilter.css';
 import PropTypes from 'prop-types';
 
 const SortAndFilter = ({ FilterProps }) => {
-  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder, page } = FilterProps;
+  const { sortFields, handleFilterChange, handleFilterSubmit, sortBy, limit, sortOrder } = FilterProps;
 
   return (
     <div className="Sort-Filter">
@@ -14,12 +14,6 @@ const SortAndFilter = ({ FilterProps }) => {
         <label htmlFor="limit">limit:</label>
         <input value={limit} onChange={handleFilterChange} type="number" name="limit" id="limit"/>
       </div>
-
-      <div className="pagediv">
-        <label htmlFor="page">page:</label>
-        <input value={page} onChange={handleFilterChange} type="number" name="page" id="page"/>
-      </div>
-
       <div className="sort-by-div">
         <label htmlFor="sort-by">sort by:</label>
         <select value={sortBy} onChange={handleFilterChange} name="sortBy" id="sort-by">
