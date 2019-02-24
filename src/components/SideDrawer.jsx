@@ -8,7 +8,7 @@ const SideDrawer = ({ show, drawerToggleClick, handleLogout, user }) => {
   return ( 
     <nav className={drawerClasses}>
       <div>
-        <button onClick={drawerToggleClick} className='close-button'>X</button>
+        <button onClick={drawerToggleClick} className='close-button'>close</button>
       </div>
       <ul>
         <li onClick={drawerToggleClick} className='Nav-item'><Link to='/articles'>Articles</Link></li>
