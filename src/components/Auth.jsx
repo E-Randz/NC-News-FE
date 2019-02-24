@@ -26,7 +26,7 @@ class Auth extends Component {
                 return <option key={user} name={user}>{user}</option>
               })}
             </select>
-            <button>Submit</button>
+            <button className='Auth-submit'>Submit</button>
           </form>
           {userErr && <p>Invalid Username</p>}
         </div>
