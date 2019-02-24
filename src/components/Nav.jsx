@@ -7,7 +7,7 @@ import DrawerToggleButton from './DrawerToggleButton';
 class Nav extends Component {
   state = {  }
   render() { 
-    const { user, handleLogout } = this.props;
+    const { user, handleLogout, drawerToggleClick } = this.props;
     return ( 
       <nav className='Header-nav'>
         <ul className='Nav-list'>
@@ -16,7 +16,7 @@ class Nav extends Component {
           <li className='Nav-item'><Link to='/users'>Users</Link></li>
           {user && <li className='Nav-item' onClick={handleLogout}><Link to='/'>Log out</Link></li>}
         </ul>
-        <DrawerToggleButton />
+        <DrawerToggleButton drawerToggleClick={drawerToggleClick} />
       </nav>
     );
   }
@@ -24,7 +24,8 @@ class Nav extends Component {
 
 Nav.propTypes = {
   user: PropTypes.object,
-  handleLogout: PropTypes.func
+  handleLogout: PropTypes.func,
+  drawerToggleClick: PropTypes.func.isRequired,
 }
  
 export default Nav;

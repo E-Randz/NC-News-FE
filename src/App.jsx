@@ -14,10 +14,13 @@ import Dashboard from './components/Dashboard';
 import CreateArticle from './components/CreateArticle';
 import CreateTopic from './components/CreateTopic';
 import HandleError from './components/HandleError';
+import SideDrawer from './components/SideDrawer';
+import Backdrop from './components/Backdrop';
 
 class App extends Component {
   state = {
     user: null,
+    isSideDrawerOpen: false,
   }
 
   componentDidMount() {
@@ -31,10 +34,16 @@ class App extends Component {
   }
 
   render() {
-    const { user } = this.state;
+    const { user, isSideDrawerOpen } = this.state;
     return (
       <div className="App">
-        <Header handleLogout={this.handleLogout} user={user}/>
+        <Header handleLogout={this.handleLogout} drawerToggleClick={this.drawerToggleClick}  user={user}/>
+        <SideDrawer show={isSideDrawerOpen}/>
+        {isSideDrawerOpen &&
+          <>
+          <Backdrop drawerToggleClick={this.drawerToggleClick}/>
+          </>
+        }
         <Auth user={user} setUser={this.setUser} >
           <Router onClick={this.toggleDashboard} className="App-page">
             <Home user={user} path='/'/>
@@ -65,6 +74,15 @@ class App extends Component {
     sessionStorage.removeItem('user')
     this.setState({
       user: null,
+    })
+  }
+
+  drawerToggleClick = () => {
+    this.setState((prevState) => {
+      return {
+        isSideDrawerOpen: !prevState.isSideDrawerOpen,
+      }
+      
     })
   }
 }

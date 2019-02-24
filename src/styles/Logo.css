@@ -2,6 +2,7 @@
   color: var(--lightgrey);
   font-size: 1em;
   white-space: nowrap;
+  margin-left: 5vw;
 }
 
 .Header-logo a {

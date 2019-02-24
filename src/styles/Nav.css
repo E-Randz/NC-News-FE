@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
+  margin-right: 5vw;
 }
 .User-img {
   width: 1em;
@@ -15,4 +16,10 @@
 }
 .Nav-item a:hover {
   color: var(--red);
+}
+
+@media screen and (max-width: 600px) {
+  .Nav-list {
+    display: none;
+  }
 }
