@@ -15,6 +15,23 @@
 .side-drawer.open {
   transform: translateX(0)
 }
+.close-button {
+  position: fixed;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-right: 5vw;
+  font-size: 2em;
+  right: 0;
+  color: var(--lightgrey);
+}
+.close-button:focus {
+  outline: none;
+}
+.close-button:hover {
+  color: var(--red);
+}
 
 .side-drawer ul {
   height: 100%;
@@ -29,7 +46,7 @@
   margin: 0.5em 0;
 }
 .side-drawer a {
-  color: var(--light-grey);
+  color: var(--lightgrey);
   text-decoration: none;
 }
 
