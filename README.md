@@ -14,7 +14,7 @@ Northcoders News is a front-end React App that serves up current news based on a
 https://github.com/E-Randz/NC-News-FE
 
 #### Deployed Project:
-https://er-northcoders-news.netlify.com/
+https://er-nc-news.netlify.com/
 
 
 ### **Back-End API App (for reference)**
@@ -81,7 +81,7 @@ The browser should open a window automatically with the application. If it does 
 
 ### 3. Logging in
 
-There is no password authentication in the back-end yet, but the front-end will require a valid username for the application to get past the Auth component. Below is a list of valid usernames.
+The front-end will require a valid username for the application to get past the Auth component. Below is a list of valid usernames that can selected from the dropdown list.
 
 * tickle122
 * grumpy19
@@ -116,6 +116,7 @@ This app has been deployed on Netlify. The link is in the introduction to this R
 * [PropTypes](https://www.npmjs.com/package/prop-types) - Runtime type checking
 * [Reach/Router](https://github.com/reach/router) - Routing for React projects
 * [GitHub](https://github.com/) - Version Control
+* [React-FontAwesome](https://github.com/FortAwesome/react-fontawesome) - Icons for React
 
 ## Authors
 
@@ -124,3 +125,5 @@ This app has been deployed on Netlify. The link is in the introduction to this R
 ## Acknowledgments
 
 * Thank you to the lovely team at Northcoders.
+* Avatars made by Freepik on [Flaticon](https://www.flaticon.com/);
+* Newspaper stall header background by Flipboard on [Unsplash](https://unsplash.com/photos/9-QUC4fm8Lo)
