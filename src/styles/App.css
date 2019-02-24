@@ -27,7 +27,7 @@ body {
   height: 3em;
   width:100%;
 }
-.App-page, .Login-page {
+.App-page {
   padding: 5em 1em;
   box-sizing: border-box;
   background: var(--lightgrey);
