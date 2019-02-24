@@ -2,7 +2,7 @@ html{
   --blue: #3CDBD3;
   --petrol: #4A6C6F;
   --red: #ED474A;
-  --lightgrey: #DBDBDB;
+  --lightgrey: #fcfcfc;
   --grey: #817F82;
   --lightpanel: #eee;
   --radius: 0.2em;
@@ -27,7 +27,7 @@ body {
   width:100%;
 }
 .App-page, .Login-page {
-  padding: 4em 1em;
+  padding: 5em 1em;
   box-sizing: border-box;
   background: var(--lightgrey);
   height: 100%;

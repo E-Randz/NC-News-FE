@@ -1,7 +1,12 @@
 .Users {
   display: grid;
   grid-gap: 1em;
-  margin: 1em;
+  margin: 0 1em 1em 1em;
+}
+.Users h1 {
+  border-bottom: 2px solid var(--petrol);
+  color: var(--petrol);
+  margin-bottom: 0;
 }
 @media screen and (min-width: 600px) {
   .Users {

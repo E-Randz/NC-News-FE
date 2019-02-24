@@ -1,3 +1,8 @@
+.Dashboard-title {
+  color: var(--petrol);
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--petrol);
+}
 
 @media screen and (min-width: 600px) {
   .Home-page {

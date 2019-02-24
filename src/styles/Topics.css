@@ -21,6 +21,11 @@
   text-decoration: none;
   color: var(--red);
 }
+.Topics h1 {
+  color: var(--petrol);
+  border-bottom: 2px solid var(--petrol);
+  margin-bottom: 0;
+}
 
 @media screen and (min-width: 600px) {
   .Topics {

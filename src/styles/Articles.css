@@ -61,6 +61,10 @@
   text-align: end;
   margin: 0.5em
 }
+.Articles h1, .Home-articles h1 {
+  color: var(--petrol);
+  border-bottom: 2px solid var(--petrol);
+}
 .Home-articles h1 {
   margin-bottom: 0;
 }

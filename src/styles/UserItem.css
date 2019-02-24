@@ -5,6 +5,8 @@
   box-shadow: 5px 5px 5px var(--grey);
 }
 .User-avatar {
+  border-radius: 50%;
+  border: 5px solid var(--blue);
   width: 10em;
 }
 .User-profile-item button {
