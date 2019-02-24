@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/Nav.css'
 import { Link } from '@reach/router'
 import PropTypes from 'prop-types';
+import DrawerToggleButton from './DrawerToggleButton';
 
 class Nav extends Component {
   state = {  }
@@ -15,6 +16,7 @@ class Nav extends Component {
           <li className='Nav-item'><Link to='/users'>Users</Link></li>
           {user && <li className='Nav-item' onClick={handleLogout}><Link to='/'>Log out</Link></li>}
         </ul>
+        <DrawerToggleButton />
       </nav>
     );
   }
