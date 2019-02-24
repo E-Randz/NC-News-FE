@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleLogout={this.handleLogout} drawerToggleClick={this.drawerToggleClick}  user={user}/>
-        <SideDrawer show={isSideDrawerOpen}/>
+        <SideDrawer drawerToggleClick={this.drawerToggleClick} handleLogout={this.handleLogout} user={user} show={isSideDrawerOpen}/>
         {isSideDrawerOpen &&
           <>
           <Backdrop drawerToggleClick={this.drawerToggleClick}/>
@@ -72,8 +72,11 @@ class App extends Component {
   }
   handleLogout = () => {
     sessionStorage.removeItem('user')
-    this.setState({
-      user: null,
+    this.setState((prevState) => {
+      return {
+        user: null,
+        isSideDrawerOpen: false,
+      }
     })
   }
 
