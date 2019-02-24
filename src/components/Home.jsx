@@ -12,8 +12,10 @@ const Home = (props) => {
   const queries = '?sort_by=votes&order=desc&limit=3';
   return (
     <div className="Home-page">
-      <h1 className="Home-title">NC News</h1>
-      <h1 className="Dashboard-title">Dashboard</h1>
+      <div className="Home-background">
+        <h1 className="Home-title">NC NEWS</h1>
+      </div>
+      <h2 className="Dashboard-title">{user.username}</h2>
       <UserItem className="Home-user-item" user={user}/>
       <Articles profile={true} queries={queries} limit={3} title="Top Articles" className="Home-articles"/>
       <CreateArticle user={user} className="Home-create-article" />
