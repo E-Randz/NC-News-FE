@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { getUserByUsername } from '../api';
 import PropTypes from 'prop-types';
+import '../styles/Auth.css'
 
 class Auth extends Component {
   state = { 
-    username: '',
+    username: 'tickle122',
     userErr: '',
     userLoading: false,
   }
@@ -12,33 +13,30 @@ class Auth extends Component {
   render() { 
     const { user, children } = this.props;
     const { username, userErr } = this.state;
+    const userOptions = ['tickle122', 'grumpy19', 'happyamy2016', 'cooljmessy', 'weegembump', 'jessjelly'];
     return (
       user ? children : 
-      <div className='Login-page'>
-        <h2>Please Log In</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input value={username} name='username' placeholder='username here' onChange={this.handleChange} type="text"/>
-          <button>Submit</button>
-        </form>
-        {userErr && <p>Invalid Username</p>}
-        <div>
-          <p>Please select from the following users to view this website</p>
-          <ul>
-            <li>tickle122</li>
-            <li>grumpy19</li>
-            <li>happyamy2016</li>
-            <li>cooljmessy</li>
-            <li>weegembump</li>
-            <li>jessjelly</li>
-          </ul>
+      <div className='Login-background'>
+        <div className='Login-page'>
+          <h1>Welcome to NC News</h1>
+          <h2>Please Log In</h2>
+          <form onSubmit={this.handleSubmit}>
+            <select onChange={this.handleChange} value={username}>
+              {userOptions.map((user) => {
+                return <option key={user} name={user}>{user}</option>
+              })}
+            </select>
+            <button>Submit</button>
+          </form>
+          {userErr && <p>Invalid Username</p>}
         </div>
       </div>
     );
   }
   handleChange = (e) => {
-    const { value, name } = e.target;
+    const { value } = e.target;
     this.setState({
-      [name]: value,
+      username: value,
       userErr: null,
     })
   }
