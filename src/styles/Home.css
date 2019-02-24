@@ -3,6 +3,20 @@
   margin-bottom: 0;
   border-bottom: 2px solid var(--petrol);
 }
+.Home-title {
+  color: var(--lightgrey);
+  background: rgba(54, 79, 82, 0.7);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 2em 0;
+  font-size: 3em;
+}
+.Home-background {
+  overflow: hidden;
+  background: url('https://source.unsplash.com/9-QUC4fm8Lo');
+  background-position: center;
+  border-radius: 10px 30px 10px;
+}
 
 @media screen and (min-width: 600px) {
   .Home-page {
@@ -12,7 +26,7 @@
     grid-template-rows: auto auto repeat(4, auto) 1fr ;
     grid-gap: 1em;
   }
-  .Home-title {
+  .Home-background {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
   }
@@ -20,6 +34,12 @@
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     margin: 0;
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .Home-title {
+    padding: 1em 0;
     font-size: 2em;
   }
 }
