@@ -6,6 +6,45 @@
   margin: 1em;
 
 }
+
+#sort-by, #sort-order {
+  display: inline-block;
+  width: 100px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  margin: 0.5em;
+  border-radius: 3px;
+}
+
+#limit {
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  margin: 0.5em;
+  border-radius: 3px;
+}
+ .Sort-Filter button {
+    background: rgba(54, 79, 82, 0.5);
+    color: var(--lightgrey);
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 3px 7px 3px;
+  }
+  
+  .Sort-Filter button:disabled {
+    color: grey;
+  }
+ 
+
+
+select::-ms-expand { 
+    display: none;
+}
+
 .Sort-Filter form {
   display: grid;
   justify-content: center;
